@@ -30,23 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblErrorRent = new System.Windows.Forms.Label();
+            this.lblErrorSale = new System.Windows.Forms.Label();
+            this.lblErrorLang = new System.Windows.Forms.Label();
+            this.lblErrorAuthor = new System.Windows.Forms.Label();
+            this.lblErrorGenre = new System.Windows.Forms.Label();
+            this.lblErrorName = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.ntxtRent = new System.Windows.Forms.NumericUpDown();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.ntxtSale = new System.Windows.Forms.NumericUpDown();
+            this.iconAddLang = new System.Windows.Forms.PictureBox();
             this.iconAddAuthor = new System.Windows.Forms.PictureBox();
             this.iconAddGenre = new System.Windows.Forms.PictureBox();
+            this.cmbLanguage = new System.Windows.Forms.ComboBox();
             this.cmbAuthor = new System.Windows.Forms.ComboBox();
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbLanguage = new System.Windows.Forms.ComboBox();
-            this.iconAddLang = new System.Windows.Forms.PictureBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,20 +64,14 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.lblErrorName = new System.Windows.Forms.Label();
-            this.lblErrorGenre = new System.Windows.Forms.Label();
-            this.lblErrorAuthor = new System.Windows.Forms.Label();
-            this.lblErrorLang = new System.Windows.Forms.Label();
-            this.lblErrorSale = new System.Windows.Forms.Label();
-            this.lblErrorRent = new System.Windows.Forms.Label();
             this.lblTitleBook = new System.Windows.Forms.Label();
             this.lblSelectedBookName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtRent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtSale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddAuthor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddGenre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,13 +107,111 @@
             this.panel1.Size = new System.Drawing.Size(360, 406);
             this.panel1.TabIndex = 0;
             // 
+            // lblErrorRent
+            // 
+            this.lblErrorRent.AutoSize = true;
+            this.lblErrorRent.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorRent.Location = new System.Drawing.Point(102, 287);
+            this.lblErrorRent.Name = "lblErrorRent";
+            this.lblErrorRent.Size = new System.Drawing.Size(103, 13);
+            this.lblErrorRent.TabIndex = 15;
+            this.lblErrorRent.Text = "*Enter price for Rent";
+            this.lblErrorRent.Visible = false;
+            // 
+            // lblErrorSale
+            // 
+            this.lblErrorSale.AutoSize = true;
+            this.lblErrorSale.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorSale.Location = new System.Drawing.Point(102, 242);
+            this.lblErrorSale.Name = "lblErrorSale";
+            this.lblErrorSale.Size = new System.Drawing.Size(101, 13);
+            this.lblErrorSale.TabIndex = 15;
+            this.lblErrorSale.Text = "*Enter price for Sale";
+            this.lblErrorSale.Visible = false;
+            // 
+            // lblErrorLang
+            // 
+            this.lblErrorLang.AutoSize = true;
+            this.lblErrorLang.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorLang.Location = new System.Drawing.Point(102, 197);
+            this.lblErrorLang.Name = "lblErrorLang";
+            this.lblErrorLang.Size = new System.Drawing.Size(88, 13);
+            this.lblErrorLang.TabIndex = 15;
+            this.lblErrorLang.Text = "*Select language";
+            this.lblErrorLang.Visible = false;
+            // 
+            // lblErrorAuthor
+            // 
+            this.lblErrorAuthor.AutoSize = true;
+            this.lblErrorAuthor.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorAuthor.Location = new System.Drawing.Point(102, 151);
+            this.lblErrorAuthor.Name = "lblErrorAuthor";
+            this.lblErrorAuthor.Size = new System.Drawing.Size(74, 13);
+            this.lblErrorAuthor.TabIndex = 15;
+            this.lblErrorAuthor.Text = "*Select author";
+            this.lblErrorAuthor.Visible = false;
+            // 
+            // lblErrorGenre
+            // 
+            this.lblErrorGenre.AutoSize = true;
+            this.lblErrorGenre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorGenre.Location = new System.Drawing.Point(102, 105);
+            this.lblErrorGenre.Name = "lblErrorGenre";
+            this.lblErrorGenre.Size = new System.Drawing.Size(71, 13);
+            this.lblErrorGenre.TabIndex = 15;
+            this.lblErrorGenre.Text = "*Select genre";
+            this.lblErrorGenre.Visible = false;
+            // 
+            // lblErrorName
+            // 
+            this.lblErrorName.AutoSize = true;
+            this.lblErrorName.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorName.Location = new System.Drawing.Point(102, 59);
+            this.lblErrorName.Name = "lblErrorName";
+            this.lblErrorName.Size = new System.Drawing.Size(65, 13);
+            this.lblErrorName.TabIndex = 15;
+            this.lblErrorName.Text = "*Enter name";
+            this.lblErrorName.Visible = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(45)))));
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCancel.Location = new System.Drawing.Point(207, 326);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(96, 35);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Reset";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // ntxtRent
             // 
             this.ntxtRent.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ntxtRent.Location = new System.Drawing.Point(105, 264);
             this.ntxtRent.Name = "ntxtRent";
             this.ntxtRent.Size = new System.Drawing.Size(196, 20);
-            this.ntxtRent.TabIndex = 4;
+            this.ntxtRent.TabIndex = 6;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(45)))));
+            this.btnCreate.Location = new System.Drawing.Point(105, 326);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(98, 35);
+            this.btnCreate.TabIndex = 7;
+            this.btnCreate.TabStop = false;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // ntxtSale
             // 
@@ -121,7 +219,18 @@
             this.ntxtSale.Location = new System.Drawing.Point(105, 219);
             this.ntxtSale.Name = "ntxtSale";
             this.ntxtSale.Size = new System.Drawing.Size(196, 20);
-            this.ntxtSale.TabIndex = 4;
+            this.ntxtSale.TabIndex = 5;
+            // 
+            // iconAddLang
+            // 
+            this.iconAddLang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconAddLang.Image = ((System.Drawing.Image)(resources.GetObject("iconAddLang.Image")));
+            this.iconAddLang.Location = new System.Drawing.Point(310, 169);
+            this.iconAddLang.Name = "iconAddLang";
+            this.iconAddLang.Size = new System.Drawing.Size(23, 23);
+            this.iconAddLang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconAddLang.TabIndex = 3;
+            this.iconAddLang.TabStop = false;
             // 
             // iconAddAuthor
             // 
@@ -145,6 +254,15 @@
             this.iconAddGenre.TabIndex = 3;
             this.iconAddGenre.TabStop = false;
             // 
+            // cmbLanguage
+            // 
+            this.cmbLanguage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbLanguage.FormattingEnabled = true;
+            this.cmbLanguage.Location = new System.Drawing.Point(105, 173);
+            this.cmbLanguage.Name = "cmbLanguage";
+            this.cmbLanguage.Size = new System.Drawing.Size(196, 21);
+            this.cmbLanguage.TabIndex = 4;
+            // 
             // cmbAuthor
             // 
             this.cmbAuthor.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -152,7 +270,7 @@
             this.cmbAuthor.Location = new System.Drawing.Point(105, 127);
             this.cmbAuthor.Name = "cmbAuthor";
             this.cmbAuthor.Size = new System.Drawing.Size(196, 21);
-            this.cmbAuthor.TabIndex = 2;
+            this.cmbAuthor.TabIndex = 3;
             // 
             // cmbGenre
             // 
@@ -173,6 +291,17 @@
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Rent Price";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Location = new System.Drawing.Point(28, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Language";
             // 
             // label3
             // 
@@ -225,69 +354,6 @@
             this.lblName.Size = new System.Drawing.Size(45, 16);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Location = new System.Drawing.Point(28, 174);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Language";
-            // 
-            // cmbLanguage
-            // 
-            this.cmbLanguage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbLanguage.FormattingEnabled = true;
-            this.cmbLanguage.Location = new System.Drawing.Point(105, 173);
-            this.cmbLanguage.Name = "cmbLanguage";
-            this.cmbLanguage.Size = new System.Drawing.Size(196, 21);
-            this.cmbLanguage.TabIndex = 2;
-            // 
-            // iconAddLang
-            // 
-            this.iconAddLang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconAddLang.Image = ((System.Drawing.Image)(resources.GetObject("iconAddLang.Image")));
-            this.iconAddLang.Location = new System.Drawing.Point(310, 169);
-            this.iconAddLang.Name = "iconAddLang";
-            this.iconAddLang.Size = new System.Drawing.Size(23, 23);
-            this.iconAddLang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconAddLang.TabIndex = 3;
-            this.iconAddLang.TabStop = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(45)))));
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCancel.Location = new System.Drawing.Point(207, 326);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 35);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(45)))));
-            this.btnCreate.Location = new System.Drawing.Point(105, 326);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(98, 35);
-            this.btnCreate.TabIndex = 14;
-            this.btnCreate.TabStop = false;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = false;
-            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // dataGridView1
             // 
@@ -365,10 +431,11 @@
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDelete.Location = new System.Drawing.Point(94, 367);
+            this.btnDelete.Location = new System.Drawing.Point(94, 370);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 26);
             this.btnDelete.TabIndex = 2;
+            this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
@@ -377,84 +444,19 @@
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(163)))), ((int)(((byte)(30)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdate.Location = new System.Drawing.Point(12, 368);
+            this.btnUpdate.Location = new System.Drawing.Point(12, 371);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 26);
             this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // lblErrorName
-            // 
-            this.lblErrorName.AutoSize = true;
-            this.lblErrorName.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorName.Location = new System.Drawing.Point(102, 59);
-            this.lblErrorName.Name = "lblErrorName";
-            this.lblErrorName.Size = new System.Drawing.Size(65, 13);
-            this.lblErrorName.TabIndex = 15;
-            this.lblErrorName.Text = "*Enter name";
-            this.lblErrorName.Visible = false;
-            // 
-            // lblErrorGenre
-            // 
-            this.lblErrorGenre.AutoSize = true;
-            this.lblErrorGenre.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorGenre.Location = new System.Drawing.Point(102, 105);
-            this.lblErrorGenre.Name = "lblErrorGenre";
-            this.lblErrorGenre.Size = new System.Drawing.Size(71, 13);
-            this.lblErrorGenre.TabIndex = 15;
-            this.lblErrorGenre.Text = "*Select genre";
-            this.lblErrorGenre.Visible = false;
-            // 
-            // lblErrorAuthor
-            // 
-            this.lblErrorAuthor.AutoSize = true;
-            this.lblErrorAuthor.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorAuthor.Location = new System.Drawing.Point(102, 151);
-            this.lblErrorAuthor.Name = "lblErrorAuthor";
-            this.lblErrorAuthor.Size = new System.Drawing.Size(74, 13);
-            this.lblErrorAuthor.TabIndex = 15;
-            this.lblErrorAuthor.Text = "*Select author";
-            this.lblErrorAuthor.Visible = false;
-            // 
-            // lblErrorLang
-            // 
-            this.lblErrorLang.AutoSize = true;
-            this.lblErrorLang.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorLang.Location = new System.Drawing.Point(102, 197);
-            this.lblErrorLang.Name = "lblErrorLang";
-            this.lblErrorLang.Size = new System.Drawing.Size(88, 13);
-            this.lblErrorLang.TabIndex = 15;
-            this.lblErrorLang.Text = "*Select language";
-            this.lblErrorLang.Visible = false;
-            // 
-            // lblErrorSale
-            // 
-            this.lblErrorSale.AutoSize = true;
-            this.lblErrorSale.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorSale.Location = new System.Drawing.Point(102, 242);
-            this.lblErrorSale.Name = "lblErrorSale";
-            this.lblErrorSale.Size = new System.Drawing.Size(101, 13);
-            this.lblErrorSale.TabIndex = 15;
-            this.lblErrorSale.Text = "*Enter price for Sale";
-            this.lblErrorSale.Visible = false;
-            // 
-            // lblErrorRent
-            // 
-            this.lblErrorRent.AutoSize = true;
-            this.lblErrorRent.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorRent.Location = new System.Drawing.Point(102, 287);
-            this.lblErrorRent.Name = "lblErrorRent";
-            this.lblErrorRent.Size = new System.Drawing.Size(103, 13);
-            this.lblErrorRent.TabIndex = 15;
-            this.lblErrorRent.Text = "*Enter price for Rent";
-            this.lblErrorRent.Visible = false;
             // 
             // lblTitleBook
             // 
             this.lblTitleBook.AutoSize = true;
             this.lblTitleBook.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitleBook.Location = new System.Drawing.Point(12, 9);
+            this.lblTitleBook.Location = new System.Drawing.Point(12, 10);
             this.lblTitleBook.Name = "lblTitleBook";
             this.lblTitleBook.Size = new System.Drawing.Size(82, 13);
             this.lblTitleBook.TabIndex = 3;
@@ -464,7 +466,7 @@
             // 
             this.lblSelectedBookName.AutoSize = true;
             this.lblSelectedBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSelectedBookName.Location = new System.Drawing.Point(95, 9);
+            this.lblSelectedBookName.Location = new System.Drawing.Point(95, 10);
             this.lblSelectedBookName.Name = "lblSelectedBookName";
             this.lblSelectedBookName.Size = new System.Drawing.Size(41, 13);
             this.lblSelectedBookName.TabIndex = 4;
@@ -492,9 +494,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtRent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtSale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddAuthor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddGenre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

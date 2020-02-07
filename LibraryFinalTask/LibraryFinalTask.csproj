@@ -58,6 +58,12 @@
     <Compile Include="Forms\BooksForm.Designer.cs">
       <DependentUpon>BooksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmployeesForm.Designer.cs">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksForm.resx">
       <DependentUpon>BooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeesForm.resx">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -120,7 +129,10 @@
     <Content Include="Shared\icons\lock %281%29.png" />
     <Content Include="Shared\icons\lock %282%29.png" />
     <Content Include="Shared\icons\lock.png" />
+    <Content Include="Shared\icons\magnifying-glass.png" />
     <Content Include="Shared\icons\padlock.png" />
+    <Content Include="Shared\icons\team.png" />
+    <Content Include="Shared\icons\undo.png" />
     <Content Include="Shared\icons\unlock %281%29.png" />
     <Content Include="Shared\icons\unlock.png" />
     <Content Include="Shared\icons\user %281%29.png" />
