@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\LibraryFinalTask.exe.config
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\LibraryFinalTask.exe
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\LibraryFinalTask.pdb
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Form1.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.LoginForm.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Properties.Resources.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.exe
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.pdb
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.RegisterForm.resources
