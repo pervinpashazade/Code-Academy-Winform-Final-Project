@@ -10,3 +10,4 @@ C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFin
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.exe
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.pdb
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.RegisterForm.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.BooksForm.resources
