@@ -64,6 +64,12 @@
     <Compile Include="Forms\AddBookGenreForm.Designer.cs">
       <DependentUpon>AddBookGenreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddLanguageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddLanguageForm.Designer.cs">
+      <DependentUpon>AddLanguageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddBookGenreForm.resx">
       <DependentUpon>AddBookGenreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddLanguageForm.resx">
+      <DependentUpon>AddLanguageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksForm.resx">
       <DependentUpon>BooksForm.cs</DependentUpon>
@@ -157,6 +166,7 @@
     <Content Include="Shared\icons\exit.png" />
     <Content Include="Shared\icons\followers.png" />
     <Content Include="Shared\icons\gear.png" />
+    <Content Include="Shared\icons\globe.png" />
     <Content Include="Shared\icons\lock %281%29.png" />
     <Content Include="Shared\icons\lock %282%29.png" />
     <Content Include="Shared\icons\lock.png" />

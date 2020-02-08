@@ -15,3 +15,4 @@ C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFin
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.CustomersForm.resources
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddBookGenreForm.resources
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddAuthorForm.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddLanguageForm.resources
