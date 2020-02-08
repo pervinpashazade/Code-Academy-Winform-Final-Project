@@ -104,5 +104,10 @@ namespace LibraryFinalTask.Forms
             lblErrorSearchFilter.Hide();
             txtSearch.Clear();
         }
+
+        private void IconBackspace_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+        }
     }
 }

@@ -69,17 +69,20 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.iconBackspace = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlInputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
+            this.pnlHeader.Controls.Add(this.iconBackspace);
             this.pnlHeader.Controls.Add(this.cmbSearchCategory);
             this.pnlHeader.Controls.Add(this.iconSearch);
             this.pnlHeader.Controls.Add(this.txtSearch);
@@ -117,7 +120,7 @@
             // 
             this.iconSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconSearch.Image = ((System.Drawing.Image)(resources.GetObject("iconSearch.Image")));
-            this.iconSearch.Location = new System.Drawing.Point(884, 56);
+            this.iconSearch.Location = new System.Drawing.Point(901, 55);
             this.iconSearch.Name = "iconSearch";
             this.iconSearch.Size = new System.Drawing.Size(21, 21);
             this.iconSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -521,6 +524,17 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // iconBackspace
+            // 
+            this.iconBackspace.Image = ((System.Drawing.Image)(resources.GetObject("iconBackspace.Image")));
+            this.iconBackspace.Location = new System.Drawing.Point(875, 55);
+            this.iconBackspace.Name = "iconBackspace";
+            this.iconBackspace.Size = new System.Drawing.Size(20, 20);
+            this.iconBackspace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconBackspace.TabIndex = 47;
+            this.iconBackspace.TabStop = false;
+            this.iconBackspace.Click += new System.EventHandler(this.IconBackspace_Click);
+            // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,6 +554,7 @@
             this.pnlInputs.ResumeLayout(false);
             this.pnlInputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,5 +601,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.Label lblErrorSearchFilter;
+        private System.Windows.Forms.PictureBox iconBackspace;
     }
 }

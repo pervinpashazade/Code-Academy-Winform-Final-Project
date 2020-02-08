@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Shared\icons\add-user.png" />
+    <Content Include="Shared\icons\backspace.png" />
     <Content Include="Shared\icons\calendar.png" />
     <Content Include="Shared\icons\clipboard.png" />
     <Content Include="Shared\icons\email.png" />
