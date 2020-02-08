@@ -17,11 +17,5 @@ namespace LibraryFinalTask.Forms
             InitializeComponent();
         }
 
-        private void IconCloseApp_Click(object sender, EventArgs e)
-        {
-            DialogResult result = new DialogResult();
-
-            Application.Exit();
-        }
     }
 }
