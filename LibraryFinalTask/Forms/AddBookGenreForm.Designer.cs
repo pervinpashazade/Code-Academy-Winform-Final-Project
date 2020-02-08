@@ -33,13 +33,15 @@
             this.iconBackspace = new System.Windows.Forms.PictureBox();
             this.iconSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSelectedFullname = new System.Windows.Forms.Label();
             this.lblTitleSelected = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrorName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.rBtnStatusActive = new System.Windows.Forms.RadioButton();
             this.lblErrorStatus = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
@@ -81,6 +81,7 @@
             this.iconBackspace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconBackspace.TabIndex = 47;
             this.iconBackspace.TabStop = false;
+            this.iconBackspace.Click += new System.EventHandler(this.IconBackspace_Click);
             // 
             // iconSearch
             // 
@@ -92,6 +93,7 @@
             this.iconSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconSearch.TabIndex = 43;
             this.iconSearch.TabStop = false;
+            this.iconSearch.Click += new System.EventHandler(this.IconSearch_Click);
             // 
             // txtSearch
             // 
@@ -99,6 +101,28 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(147, 20);
             this.txtSearch.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Location = new System.Drawing.Point(117, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Book genres";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(110, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // lblSelectedFullname
             // 
@@ -127,7 +151,7 @@
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdate.Location = new System.Drawing.Point(306, 125);
+            this.btnUpdate.Location = new System.Drawing.Point(306, 124);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 26);
             this.btnUpdate.TabIndex = 39;
@@ -141,35 +165,13 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDelete.Location = new System.Drawing.Point(388, 124);
+            this.btnDelete.Location = new System.Drawing.Point(388, 123);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 27);
             this.btnDelete.TabIndex = 40;
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Location = new System.Drawing.Point(117, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Book genres";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -180,17 +182,30 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(306, 172);
+            this.dataGridView1.Location = new System.Drawing.Point(306, 166);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(191, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(191, 170);
             this.dataGridView1.TabIndex = 42;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // lblErrorName
             // 
             this.lblErrorName.AutoSize = true;
             this.lblErrorName.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorName.Location = new System.Drawing.Point(96, 218);
+            this.lblErrorName.Location = new System.Drawing.Point(96, 195);
             this.lblErrorName.Name = "lblErrorName";
             this.lblErrorName.Size = new System.Drawing.Size(65, 13);
             this.lblErrorName.TabIndex = 49;
@@ -200,7 +215,7 @@
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtName.Location = new System.Drawing.Point(99, 195);
+            this.txtName.Location = new System.Drawing.Point(99, 172);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(166, 20);
             this.txtName.TabIndex = 47;
@@ -210,7 +225,7 @@
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label52.Location = new System.Drawing.Point(26, 195);
+            this.label52.Location = new System.Drawing.Point(26, 172);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(49, 16);
             this.label52.TabIndex = 48;
@@ -230,6 +245,7 @@
             this.btnReset.TabStop = false;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // btnCreate
             // 
@@ -245,12 +261,13 @@
             this.btnCreate.TabStop = false;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
             // 
             // rBtnStatusDisabled
             // 
             this.rBtnStatusDisabled.AutoSize = true;
             this.rBtnStatusDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.rBtnStatusDisabled.Location = new System.Drawing.Point(190, 234);
+            this.rBtnStatusDisabled.Location = new System.Drawing.Point(190, 216);
             this.rBtnStatusDisabled.Name = "rBtnStatusDisabled";
             this.rBtnStatusDisabled.Size = new System.Drawing.Size(66, 17);
             this.rBtnStatusDisabled.TabIndex = 51;
@@ -262,7 +279,7 @@
             // 
             this.rBtnStatusActive.AutoSize = true;
             this.rBtnStatusActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.rBtnStatusActive.Location = new System.Drawing.Point(99, 234);
+            this.rBtnStatusActive.Location = new System.Drawing.Point(99, 216);
             this.rBtnStatusActive.Name = "rBtnStatusActive";
             this.rBtnStatusActive.Size = new System.Drawing.Size(55, 17);
             this.rBtnStatusActive.TabIndex = 50;
@@ -274,7 +291,7 @@
             // 
             this.lblErrorStatus.AutoSize = true;
             this.lblErrorStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorStatus.Location = new System.Drawing.Point(140, 254);
+            this.lblErrorStatus.Location = new System.Drawing.Point(140, 236);
             this.lblErrorStatus.Name = "lblErrorStatus";
             this.lblErrorStatus.Size = new System.Drawing.Size(72, 13);
             this.lblErrorStatus.TabIndex = 53;
@@ -286,24 +303,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label10.Location = new System.Drawing.Point(26, 234);
+            this.label10.Location = new System.Drawing.Point(26, 216);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 16);
             this.label10.TabIndex = 52;
             this.label10.Text = "Status";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // AddBookGenreForm
             // 
@@ -329,7 +333,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddBookGenreForm";
-            this.Text = "AddBookGenreForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Library App - Add Genre";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
