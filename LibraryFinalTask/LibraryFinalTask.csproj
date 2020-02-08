@@ -70,6 +70,12 @@
     <Compile Include="Forms\AddLanguageForm.Designer.cs">
       <DependentUpon>AddLanguageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPositionForm.Designer.cs">
+      <DependentUpon>AddPositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BooksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddLanguageForm.resx">
       <DependentUpon>AddLanguageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPositionForm.resx">
+      <DependentUpon>AddPositionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksForm.resx">
       <DependentUpon>BooksForm.cs</DependentUpon>
