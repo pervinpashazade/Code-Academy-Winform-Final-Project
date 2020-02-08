@@ -489,7 +489,7 @@
             this.MinimizeBox = false;
             this.Name = "BooksForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Books Form";
+            this.Text = "Library App - Books";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtRent)).EndInit();

@@ -585,7 +585,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "EmployeesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmployeesForm";
+            this.Text = "Library App - Employees";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();

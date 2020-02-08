@@ -58,6 +58,12 @@
     <Compile Include="Forms\BooksForm.Designer.cs">
       <DependentUpon>BooksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BooksForm.resx">
       <DependentUpon>BooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
@@ -126,6 +135,7 @@
     <Content Include="Shared\icons\email.png" />
     <Content Include="Shared\icons\exit %281%29.png" />
     <Content Include="Shared\icons\exit.png" />
+    <Content Include="Shared\icons\followers.png" />
     <Content Include="Shared\icons\lock %281%29.png" />
     <Content Include="Shared\icons\lock %282%29.png" />
     <Content Include="Shared\icons\lock.png" />
