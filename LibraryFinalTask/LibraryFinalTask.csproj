@@ -178,6 +178,7 @@
     <Content Include="Shared\icons\add.png" />
     <Content Include="Shared\icons\backspace.png" />
     <Content Include="Shared\icons\calendar.png" />
+    <Content Include="Shared\icons\cancel %281%29.png" />
     <Content Include="Shared\icons\cancel.png" />
     <Content Include="Shared\icons\clipboard.png" />
     <Content Include="Shared\icons\copyright.png" />
@@ -197,6 +198,11 @@
     <Content Include="Shared\icons\order.png" />
     <Content Include="Shared\icons\padlock.png" />
     <Content Include="Shared\icons\team.png" />
+    <Content Include="Shared\icons\tick %281%29.png" />
+    <Content Include="Shared\icons\tick %282%29.png" />
+    <Content Include="Shared\icons\tick %283%29.png" />
+    <Content Include="Shared\icons\tick %284%29.png" />
+    <Content Include="Shared\icons\tick.png" />
     <Content Include="Shared\icons\undo.png" />
     <Content Include="Shared\icons\unlock %281%29.png" />
     <Content Include="Shared\icons\unlock.png" />
