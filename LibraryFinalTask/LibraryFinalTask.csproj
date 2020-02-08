@@ -88,6 +88,12 @@
     <Compile Include="Forms\CustomersForm.Designer.cs">
       <DependentUpon>CustomersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EmployeesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <EmbeddedResource Include="Forms\CustomersForm.resx">
       <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,8 +177,11 @@
     <Content Include="Shared\icons\add-user.png" />
     <Content Include="Shared\icons\backspace.png" />
     <Content Include="Shared\icons\calendar.png" />
+    <Content Include="Shared\icons\cancel.png" />
     <Content Include="Shared\icons\clipboard.png" />
     <Content Include="Shared\icons\copyright.png" />
+    <Content Include="Shared\icons\dashboard %281%29.png" />
+    <Content Include="Shared\icons\dashboard.png" />
     <Content Include="Shared\icons\email.png" />
     <Content Include="Shared\icons\exit %281%29.png" />
     <Content Include="Shared\icons\exit.png" />
