@@ -197,6 +197,7 @@
     <Content Include="Shared\icons\order %281%29.png" />
     <Content Include="Shared\icons\order.png" />
     <Content Include="Shared\icons\padlock.png" />
+    <Content Include="Shared\icons\recorder.png" />
     <Content Include="Shared\icons\team.png" />
     <Content Include="Shared\icons\tick %281%29.png" />
     <Content Include="Shared\icons\tick %282%29.png" />
