@@ -17,6 +17,9 @@ namespace LibraryFinalTask.Forms
             InitializeComponent();
         }
 
-
+        private void BtnAddToCart_Click(object sender, EventArgs e)
+        {
+            //panelCreateOrder.Hide();
+        }
     }
 }
