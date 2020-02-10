@@ -41,6 +41,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrorStatus = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblTitleSelected = new System.Windows.Forms.Label();
             this.lblSelectedFullname = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.lblerrorSurname = new System.Windows.Forms.Label();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
@@ -198,6 +198,12 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(296, 240);
             this.dataGridView1.TabIndex = 61;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Surname";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // btnUpdate
             // 
@@ -344,12 +350,6 @@
             this.lblerrorSurname.Text = "*Enter surname";
             this.lblerrorSurname.Visible = false;
             // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Surname";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // AddAuthorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,7 +374,9 @@
             this.Controls.Add(this.lblSelectedFullname);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.btnDelete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddAuthorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Library App - Book Authors";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();

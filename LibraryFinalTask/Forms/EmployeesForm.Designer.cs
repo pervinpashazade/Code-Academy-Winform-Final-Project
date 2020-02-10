@@ -365,6 +365,7 @@
             this.iconAddAuthor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconAddAuthor.TabIndex = 26;
             this.iconAddAuthor.TabStop = false;
+            this.iconAddAuthor.Click += new System.EventHandler(this.IconAddAuthor_Click);
             // 
             // cmbPositions
             // 

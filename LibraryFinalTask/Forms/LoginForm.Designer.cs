@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -38,14 +37,11 @@
             this.txtEmailLogin = new System.Windows.Forms.TextBox();
             this.pnlEmailLogin = new System.Windows.Forms.Panel();
             this.btnLoginLoginF = new System.Windows.Forms.Button();
-            this.btnRegisterLoginF = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.iconExit = new System.Windows.Forms.PictureBox();
-            this.lblTermsLink = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblErrorEmail = new System.Windows.Forms.Label();
             this.lblErrorPass = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -137,38 +133,13 @@
             this.btnLoginLoginF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginLoginF.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLoginLoginF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
-            this.btnLoginLoginF.Location = new System.Drawing.Point(35, 384);
+            this.btnLoginLoginF.Location = new System.Drawing.Point(35, 350);
             this.btnLoginLoginF.Name = "btnLoginLoginF";
             this.btnLoginLoginF.Size = new System.Drawing.Size(258, 37);
             this.btnLoginLoginF.TabIndex = 3;
             this.btnLoginLoginF.Text = "Login";
             this.btnLoginLoginF.UseVisualStyleBackColor = false;
             this.btnLoginLoginF.Click += new System.EventHandler(this.BtnLoginLoginF_Click);
-            // 
-            // btnRegisterLoginF
-            // 
-            this.btnRegisterLoginF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
-            this.btnRegisterLoginF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegisterLoginF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegisterLoginF.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRegisterLoginF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnRegisterLoginF.Location = new System.Drawing.Point(35, 436);
-            this.btnRegisterLoginF.Name = "btnRegisterLoginF";
-            this.btnRegisterLoginF.Size = new System.Drawing.Size(258, 37);
-            this.btnRegisterLoginF.TabIndex = 3;
-            this.btnRegisterLoginF.Text = "Register";
-            this.btnRegisterLoginF.UseVisualStyleBackColor = false;
-            this.btnRegisterLoginF.Click += new System.EventHandler(this.BtnRegisterLoginF_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 10;
-            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // iconExit
             // 
@@ -182,24 +153,11 @@
             this.iconExit.TabStop = false;
             this.iconExit.Click += new System.EventHandler(this.IconExit_Click);
             // 
-            // lblTermsLink
-            // 
-            this.lblTermsLink.AutoSize = true;
-            this.lblTermsLink.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTermsLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTermsLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lblTermsLink.Location = new System.Drawing.Point(131, 522);
-            this.lblTermsLink.Name = "lblTermsLink";
-            this.lblTermsLink.Size = new System.Drawing.Size(124, 13);
-            this.lblTermsLink.TabIndex = 16;
-            this.lblTermsLink.Text = "terms and conditions";
-            this.lblTermsLink.Click += new System.EventHandler(this.LblTermsLink_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(72, 522);
+            this.label1.Location = new System.Drawing.Point(85, 418);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 17;
@@ -229,18 +187,33 @@
             this.lblErrorPass.Text = "*Enter password";
             this.lblErrorPass.Visible = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.linkLabel1.Location = new System.Drawing.Point(145, 419);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(93, 13);
+            this.linkLabel1.TabIndex = 19;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Pervin Pashazade";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(332, 570);
+            this.ClientSize = new System.Drawing.Size(332, 465);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblErrorPass);
             this.Controls.Add(this.lblErrorEmail);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTermsLink);
             this.Controls.Add(this.iconExit);
-            this.Controls.Add(this.btnRegisterLoginF);
             this.Controls.Add(this.btnLoginLoginF);
             this.Controls.Add(this.pnlEmailLogin);
             this.Controls.Add(this.pnlPassLogin);
@@ -254,7 +227,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login - Library App";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -274,13 +246,10 @@
         private System.Windows.Forms.TextBox txtEmailLogin;
         private System.Windows.Forms.Panel pnlEmailLogin;
         private System.Windows.Forms.Button btnLoginLoginF;
-        private System.Windows.Forms.Button btnRegisterLoginF;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox iconExit;
-        private System.Windows.Forms.Label lblTermsLink;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblErrorEmail;
         private System.Windows.Forms.Label lblErrorPass;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

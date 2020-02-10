@@ -90,5 +90,23 @@ namespace LibraryFinalTask.Forms
             lblErrorSale.Hide();
             lblErrorRent.Hide();
         }
+
+        private void IconAddGenre_Click(object sender, EventArgs e)
+        {
+            AddBookGenreForm addBookGenreForm = new AddBookGenreForm();
+            addBookGenreForm.ShowDialog();
+        }
+
+        private void IconAddAuthor_Click(object sender, EventArgs e)
+        {
+            AddAuthorForm addAuthorForm = new AddAuthorForm();
+            addAuthorForm.ShowDialog();
+        }
+
+        private void IconAddLang_Click(object sender, EventArgs e)
+        {
+            AddLanguageForm addLanguageForm = new AddLanguageForm();
+            addLanguageForm.ShowDialog();
+        }
     }
 }

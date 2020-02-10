@@ -330,6 +330,8 @@
             this.Controls.Add(this.lblSelectedFullname);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.btnDelete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "AddLanguageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library App - Languages";

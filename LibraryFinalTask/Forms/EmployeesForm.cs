@@ -113,5 +113,11 @@ namespace LibraryFinalTask.Forms
                 return;
             }
         }
+
+        private void IconAddAuthor_Click(object sender, EventArgs e)
+        {
+            AddPositionForm addPositionForm = new AddPositionForm();
+            addPositionForm.ShowDialog();
+        }
     }
 }

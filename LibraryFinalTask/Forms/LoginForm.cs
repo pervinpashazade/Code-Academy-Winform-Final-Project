@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,9 +32,6 @@ namespace LibraryFinalTask.Forms
             return content;
         }
 
-
-        RegisterForm registerForm = new RegisterForm();
-
         private void TxtPassLogin_Click(object sender, EventArgs e)
         {
             txtPassLogin.Clear();
@@ -55,47 +53,15 @@ namespace LibraryFinalTask.Forms
             pnlPassLogin.BackColor = Color.WhiteSmoke;
         }
 
-
-
-        private void BtnRegisterLoginF_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            registerForm.Left += 10;
-            if (registerForm.Left >= 850)
-            {
-                timer1.Stop();
-                this.TopMost = false;
-                registerForm.TopMost = true;
-                timer2.Start();
-            }
-        }
-
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-            registerForm.Left -= 10;
-            if (registerForm.Left <= 520)
-            {
-                timer2.Stop();
-            }
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            registerForm.Show();
-        }
-
         private void IconExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void LblTermsLink_Click(object sender, EventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(FillTermsAndConditions(), "Library App Terms & Conditions");
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://www.facebook.com/pervin.pashazade");
+            Process.Start(sInfo);
         }
 
         private void BtnLoginLoginF_Click(object sender, EventArgs e)
@@ -114,11 +80,17 @@ namespace LibraryFinalTask.Forms
             {
                 lblErrorPass.Show();
                 pnlPassLogin.BackColor = Color.Red;
+
             }
             else
             {
                 lblErrorPass.Hide();
             }
+
+            AddOrderForm addOrderForm = new AddOrderForm();
+
+            addOrderForm.ShowDialog();
         }
+
     }
 }

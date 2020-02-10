@@ -330,6 +330,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblTitleSelected);
             this.Controls.Add(this.lblSelectedFullname);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddBookGenreForm";
