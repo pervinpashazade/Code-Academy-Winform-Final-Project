@@ -17,3 +17,9 @@ C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFin
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddLanguageForm.resources
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddPositionForm.resources
 C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.AddOrderForm.resources
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.csproj.CopyComplete
+C:\Users\User\Desktop\Code 2 (Yolchu m)\2. C#\Final Task (07.02.2020)\LibraryFinalTask\LibraryFinalTask\obj\Debug\LibraryFinalTask.Forms.ViewReturnsForm.resources
