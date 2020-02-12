@@ -17,6 +17,5 @@ namespace LibraryFinalTask.Forms
             InitializeComponent();
         }
 
-
     }
 }

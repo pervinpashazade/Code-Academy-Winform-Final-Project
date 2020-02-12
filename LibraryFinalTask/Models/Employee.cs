@@ -8,18 +8,32 @@ using System.Threading.Tasks;
 
 namespace LibraryFinalTask.Models
 {
-    class Language
+    class Employee
     {
         public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string Surname { get; set; }
+        public int PositionId { get; set; }
+        public decimal Sallary { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string Email { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string Phone { get; set; }
         public bool Status { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
 
-        public List<Book> Books { get; set; }
+        public Position Position { get; set; }
     }
 }

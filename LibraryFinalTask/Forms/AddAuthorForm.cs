@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LibraryFinalTask.Data;
 using System.Windows.Forms;
+using LibraryFinalTask.Models;
 
 namespace LibraryFinalTask.Forms
 {
     public partial class AddAuthorForm : Form
     {
+        private readonly LibraryDbContext _db;
         public AddAuthorForm()
         {
+            _db = new LibraryDbContext();
+
             InitializeComponent();
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
+            //validation start
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 lblErrorName.Show();
@@ -45,6 +45,30 @@ namespace LibraryFinalTask.Forms
             {
                 lblErrorStatus.Hide();
             }
+            //validation end
+
+            if (!string.IsNullOrEmpty(txtName.Text) && !string.IsNullOrEmpty(txtSurname.Text) 
+                                                    && !string.IsNullOrEmpty(txtSurname.Text)
+                                                    && (rBtnStatusActive.Checked || 
+                                                        rBtnStatusDisabled.Checked))
+            {
+                Author author = new Author();
+
+                author.Name = txtName.Text;
+                author.Surname = txtSurname.Text;
+                author.Status = rBtnStatusActive.Checked ? true : false;
+                author.CreatedAt = DateTime.Now;
+
+                _db.Authors.Add(author);
+                _db.SaveChanges();
+
+                MessageBox.Show("Author added : " + txtName.Text + " " + txtSurname.Text, "New Author");
+                txtName.Clear();
+                txtSurname.Clear();
+                rBtnStatusActive.Checked = false;
+                rBtnStatusDisabled.Checked = false;
+            }
+
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
