@@ -17,7 +17,7 @@ namespace LibraryFinalTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddBookGenreForm());
+            Application.Run(new AddLanguageForm());
         }
     }
 }
