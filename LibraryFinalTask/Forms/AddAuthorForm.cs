@@ -95,7 +95,7 @@ namespace LibraryFinalTask.Forms
             }
             //validation end
 
-            if (!string.IsNullOrEmpty(txtName.Text) && !string.IsNullOrEmpty(txtSurname.Text)
+            if (!string.IsNullOrEmpty(txtName.Text) && !string.IsNullOrEmpty(txtName.Text)
                                                     && !string.IsNullOrEmpty(txtSurname.Text)
                                                     && (rBtnStatusActive.Checked ||
                                                         rBtnStatusDisabled.Checked))
@@ -183,11 +183,28 @@ namespace LibraryFinalTask.Forms
 
         }
 
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Selected autor will be deleted permanently", "Delete Author", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.Yes)
+            {
+                _db.Authors.Remove(_selectedAuthor);
+
+                _db.SaveChanges();
+
+                FillAuthors();
+                ResetForm();
+            }
+            else
+            {
+                ResetForm();
+            }
+        }
+
+
 
         #endregion
-
-
-
 
         private void IconBackspace_Click(object sender, EventArgs e)
         {
@@ -240,23 +257,5 @@ namespace LibraryFinalTask.Forms
             btnCreate.Enabled = false;
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Selected autor will be deleted permanently", "Delete Author", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dialog == DialogResult.Yes)
-            {
-                _db.Authors.Remove(_selectedAuthor);
-
-                _db.SaveChanges();
-
-                FillAuthors();
-                ResetForm();
-            }
-            else
-            {
-                ResetForm();
-            }
-        }
     }
 }

@@ -39,9 +39,7 @@
             this.lblTitleSelected = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGenres = new System.Windows.Forms.DataGridView();
             this.lblErrorName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -51,11 +49,14 @@
             this.rBtnStatusActive = new System.Windows.Forms.RadioButton();
             this.lblErrorStatus = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGenres)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -158,6 +159,7 @@
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -172,34 +174,24 @@
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // dataGridView1
+            // dgvGenres
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvGenres.AllowUserToAddRows = false;
+            this.dgvGenres.AllowUserToDeleteRows = false;
+            this.dgvGenres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGenres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGenres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(306, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(191, 170);
-            this.dataGridView1.TabIndex = 42;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.Column2,
+            this.Column3});
+            this.dgvGenres.Location = new System.Drawing.Point(306, 166);
+            this.dgvGenres.Name = "dgvGenres";
+            this.dgvGenres.ReadOnly = true;
+            this.dgvGenres.Size = new System.Drawing.Size(191, 170);
+            this.dgvGenres.TabIndex = 42;
+            this.dgvGenres.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGenres_RowHeaderMouseDoubleClick);
             // 
             // lblErrorName
             // 
@@ -309,6 +301,25 @@
             this.label10.TabIndex = 52;
             this.label10.Text = "Status";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Status";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // AddBookGenreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,7 +335,7 @@
             this.Controls.Add(this.lblErrorName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label52);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvGenres);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
@@ -341,7 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGenres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +370,7 @@
         private System.Windows.Forms.Label lblTitleSelected;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvGenres;
         private System.Windows.Forms.Label lblErrorName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label52;
@@ -371,5 +382,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
