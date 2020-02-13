@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryFinalTask.Models
 {
-    class Book
+   public class Book
     {
         public int Id { get; set; }
 

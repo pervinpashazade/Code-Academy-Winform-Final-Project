@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryFinalTask.Models
 {
-    class Position
+    public class Position
     {
         public int Id { get; set; }
 

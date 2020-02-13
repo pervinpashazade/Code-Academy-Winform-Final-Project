@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryFinalTask.Models
 {
-    class Genre
+    public class Genre
     {
         public int Id { get; set; }
 

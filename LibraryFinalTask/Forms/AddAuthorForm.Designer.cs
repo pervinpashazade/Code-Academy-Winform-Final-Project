@@ -37,11 +37,7 @@
             this.lblErrorName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrorStatus = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblTitleSelected = new System.Windows.Forms.Label();
             this.lblSelectedFullname = new System.Windows.Forms.Label();
@@ -55,11 +51,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.lblerrorSurname = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAuthors = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuthors)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReset
@@ -159,19 +160,6 @@
             this.label52.TabIndex = 63;
             this.label52.Text = "Name";
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
             // lblErrorStatus
             // 
             this.lblErrorStatus.AutoSize = true;
@@ -182,28 +170,6 @@
             this.lblErrorStatus.TabIndex = 68;
             this.lblErrorStatus.Text = "*Select status";
             this.lblErrorStatus.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(306, 167);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(296, 240);
-            this.dataGridView1.TabIndex = 61;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Surname";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // btnUpdate
             // 
@@ -218,6 +184,8 @@
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // lblTitleSelected
             // 
@@ -228,6 +196,7 @@
             this.lblTitleSelected.Size = new System.Drawing.Size(55, 13);
             this.lblTitleSelected.TabIndex = 59;
             this.lblTitleSelected.Text = "Selected :";
+            this.lblTitleSelected.Visible = false;
             // 
             // lblSelectedFullname
             // 
@@ -236,9 +205,9 @@
             this.lblSelectedFullname.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblSelectedFullname.Location = new System.Drawing.Point(151, 131);
             this.lblSelectedFullname.Name = "lblSelectedFullname";
-            this.lblSelectedFullname.Size = new System.Drawing.Size(109, 13);
+            this.lblSelectedFullname.Size = new System.Drawing.Size(0, 13);
             this.lblSelectedFullname.TabIndex = 60;
-            this.lblSelectedFullname.Text = "Pashazade Pervin";
+            this.lblSelectedFullname.Visible = false;
             // 
             // iconBackspace
             // 
@@ -319,6 +288,8 @@
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // label2
             // 
@@ -350,6 +321,49 @@
             this.lblerrorSurname.Text = "*Enter surname";
             this.lblerrorSurname.Visible = false;
             // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Status";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Surname";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // dgvAuthors
+            // 
+            this.dgvAuthors.AllowUserToAddRows = false;
+            this.dgvAuthors.AllowUserToDeleteRows = false;
+            this.dgvAuthors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAuthors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAuthors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgvAuthors.Location = new System.Drawing.Point(306, 167);
+            this.dgvAuthors.Name = "dgvAuthors";
+            this.dgvAuthors.ReadOnly = true;
+            this.dgvAuthors.Size = new System.Drawing.Size(296, 240);
+            this.dgvAuthors.TabIndex = 61;
+            this.dgvAuthors.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAuthors_RowHeaderMouseDoubleClick);
+            // 
             // AddAuthorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,7 +382,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label52);
             this.Controls.Add(this.lblErrorStatus);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAuthors);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblTitleSelected);
             this.Controls.Add(this.lblSelectedFullname);
@@ -378,12 +392,12 @@
             this.Name = "AddAuthorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Library App - Book Authors";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuthors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,10 +413,7 @@
         private System.Windows.Forms.Label lblErrorName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label lblErrorStatus;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblTitleSelected;
         private System.Windows.Forms.Label lblSelectedFullname;
@@ -416,6 +427,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label lblerrorSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridView dgvAuthors;
     }
 }
