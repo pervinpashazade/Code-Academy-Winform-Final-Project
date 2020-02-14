@@ -9,7 +9,7 @@ namespace LibraryFinalTask.Forms
 {
     public partial class AddAuthorForm : Form
     {
-        private  LibraryDbContext _db;
+        private readonly LibraryDbContext _db;
         private Author _selectedAuthor;
         public AddAuthorForm()
         {
