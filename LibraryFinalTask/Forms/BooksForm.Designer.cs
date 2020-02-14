@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BooksForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconRefresh = new System.Windows.Forms.PictureBox();
             this.rBtnStatusDisabled = new System.Windows.Forms.RadioButton();
             this.rBtnStatusActive = new System.Windows.Forms.RadioButton();
             this.lblErrorStatus = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblErrorCount = new System.Windows.Forms.Label();
             this.lblErrorRent = new System.Windows.Forms.Label();
             this.lblErrorSale = new System.Windows.Forms.Label();
             this.lblErrorLang = new System.Windows.Forms.Label();
@@ -41,6 +45,7 @@
             this.lblErrorGenre = new System.Windows.Forms.Label();
             this.lblErrorName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.ntxtCount = new System.Windows.Forms.NumericUpDown();
             this.ntxtRent = new System.Windows.Forms.NumericUpDown();
             this.btnCreate = new System.Windows.Forms.Button();
             this.ntxtSale = new System.Windows.Forms.NumericUpDown();
@@ -49,6 +54,7 @@
             this.iconAddGenre = new System.Windows.Forms.PictureBox();
             this.cmbLanguage = new System.Windows.Forms.ComboBox();
             this.cmbAuthor = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +63,11 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblTitleBook = new System.Windows.Forms.Label();
+            this.lblSelectedBookName = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,24 +77,15 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTitleBook = new System.Windows.Forms.Label();
-            this.lblSelectedBookName = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.iconRefresh = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ntxtCount = new System.Windows.Forms.NumericUpDown();
-            this.lblErrorCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntxtCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtRent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtSale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddAuthor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddGenre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconRefresh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ntxtCount)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +127,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 511);
             this.panel1.TabIndex = 0;
+            // 
+            // iconRefresh
+            // 
+            this.iconRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconRefresh.Image = ((System.Drawing.Image)(resources.GetObject("iconRefresh.Image")));
+            this.iconRefresh.Location = new System.Drawing.Point(318, 20);
+            this.iconRefresh.Name = "iconRefresh";
+            this.iconRefresh.Size = new System.Drawing.Size(39, 25);
+            this.iconRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconRefresh.TabIndex = 46;
+            this.iconRefresh.TabStop = false;
+            this.iconRefresh.Click += new System.EventHandler(this.IconRefresh_Click);
             // 
             // rBtnStatusDisabled
             // 
@@ -171,6 +185,17 @@
             this.label10.Size = new System.Drawing.Size(45, 16);
             this.label10.TabIndex = 44;
             this.label10.Text = "Status";
+            // 
+            // lblErrorCount
+            // 
+            this.lblErrorCount.AutoSize = true;
+            this.lblErrorCount.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCount.Location = new System.Drawing.Point(89, 359);
+            this.lblErrorCount.Name = "lblErrorCount";
+            this.lblErrorCount.Size = new System.Drawing.Size(93, 13);
+            this.lblErrorCount.TabIndex = 15;
+            this.lblErrorCount.Text = "*Enter book count";
+            this.lblErrorCount.Visible = false;
             // 
             // lblErrorRent
             // 
@@ -253,6 +278,14 @@
             this.btnCancel.Text = "Reset";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // ntxtCount
+            // 
+            this.ntxtCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ntxtCount.Location = new System.Drawing.Point(92, 336);
+            this.ntxtCount.Name = "ntxtCount";
+            this.ntxtCount.Size = new System.Drawing.Size(196, 20);
+            this.ntxtCount.TabIndex = 6;
             // 
             // ntxtRent
             // 
@@ -340,6 +373,17 @@
             this.cmbAuthor.Size = new System.Drawing.Size(196, 21);
             this.cmbAuthor.TabIndex = 3;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Location = new System.Drawing.Point(35, 336);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 16);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Count";
+            // 
             // cmbGenre
             // 
             this.cmbGenre.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -423,6 +467,65 @@
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
+            // lblTitleBook
+            // 
+            this.lblTitleBook.AutoSize = true;
+            this.lblTitleBook.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitleBook.Location = new System.Drawing.Point(12, 27);
+            this.lblTitleBook.Name = "lblTitleBook";
+            this.lblTitleBook.Size = new System.Drawing.Size(82, 13);
+            this.lblTitleBook.TabIndex = 3;
+            this.lblTitleBook.Text = "Selected book :";
+            this.lblTitleBook.Visible = false;
+            // 
+            // lblSelectedBookName
+            // 
+            this.lblSelectedBookName.AutoSize = true;
+            this.lblSelectedBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSelectedBookName.Location = new System.Drawing.Point(95, 27);
+            this.lblSelectedBookName.Name = "lblSelectedBookName";
+            this.lblSelectedBookName.Size = new System.Drawing.Size(0, 13);
+            this.lblSelectedBookName.TabIndex = 4;
+            this.lblSelectedBookName.Visible = false;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(163)))), ((int)(((byte)(30)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdate.Location = new System.Drawing.Point(647, 20);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 26);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.TabStop = false;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDelete.Location = new System.Drawing.Point(733, 20);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 26);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.TabStop = false;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Status";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // Column7
             // 
             this.Column7.HeaderText = "Rent Price";
@@ -489,105 +592,22 @@
             this.Column6,
             this.Column7,
             this.Column9});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBooks.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBooks.Location = new System.Drawing.Point(12, 57);
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.dgvBooks.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBooks.Size = new System.Drawing.Size(796, 442);
             this.dgvBooks.TabIndex = 1;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Status";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // lblTitleBook
-            // 
-            this.lblTitleBook.AutoSize = true;
-            this.lblTitleBook.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitleBook.Location = new System.Drawing.Point(12, 27);
-            this.lblTitleBook.Name = "lblTitleBook";
-            this.lblTitleBook.Size = new System.Drawing.Size(82, 13);
-            this.lblTitleBook.TabIndex = 3;
-            this.lblTitleBook.Text = "Selected book :";
-            // 
-            // lblSelectedBookName
-            // 
-            this.lblSelectedBookName.AutoSize = true;
-            this.lblSelectedBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSelectedBookName.Location = new System.Drawing.Point(95, 27);
-            this.lblSelectedBookName.Name = "lblSelectedBookName";
-            this.lblSelectedBookName.Size = new System.Drawing.Size(41, 13);
-            this.lblSelectedBookName.TabIndex = 4;
-            this.lblSelectedBookName.Text = "label7";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(163)))), ((int)(((byte)(30)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdate.Location = new System.Drawing.Point(647, 20);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 26);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.TabStop = false;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDelete.Location = new System.Drawing.Point(733, 20);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 26);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.TabStop = false;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // iconRefresh
-            // 
-            this.iconRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconRefresh.Image = ((System.Drawing.Image)(resources.GetObject("iconRefresh.Image")));
-            this.iconRefresh.Location = new System.Drawing.Point(318, 20);
-            this.iconRefresh.Name = "iconRefresh";
-            this.iconRefresh.Size = new System.Drawing.Size(39, 25);
-            this.iconRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconRefresh.TabIndex = 46;
-            this.iconRefresh.TabStop = false;
-            this.iconRefresh.Click += new System.EventHandler(this.IconRefresh_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Location = new System.Drawing.Point(13, 336);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Count";
-            // 
-            // ntxtCount
-            // 
-            this.ntxtCount.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ntxtCount.Location = new System.Drawing.Point(92, 336);
-            this.ntxtCount.Name = "ntxtCount";
-            this.ntxtCount.Size = new System.Drawing.Size(196, 20);
-            this.ntxtCount.TabIndex = 6;
-            // 
-            // lblErrorCount
-            // 
-            this.lblErrorCount.AutoSize = true;
-            this.lblErrorCount.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCount.Location = new System.Drawing.Point(89, 359);
-            this.lblErrorCount.Name = "lblErrorCount";
-            this.lblErrorCount.Size = new System.Drawing.Size(93, 13);
-            this.lblErrorCount.TabIndex = 15;
-            this.lblErrorCount.Text = "*Enter book count";
-            this.lblErrorCount.Visible = false;
+            this.dgvBooks.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBooks_RowHeaderMouseDoubleClick);
             // 
             // BooksForm
             // 
@@ -609,14 +629,14 @@
             this.Text = "Library App - Books";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntxtCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtRent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtSale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddLang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddAuthor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconAddGenre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconRefresh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ntxtCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -648,6 +668,19 @@
         private System.Windows.Forms.Label lblErrorAuthor;
         private System.Windows.Forms.Label lblErrorGenre;
         private System.Windows.Forms.Label lblErrorName;
+        private System.Windows.Forms.Label lblTitleBook;
+        private System.Windows.Forms.Label lblSelectedBookName;
+        private System.Windows.Forms.RadioButton rBtnStatusDisabled;
+        private System.Windows.Forms.RadioButton rBtnStatusActive;
+        private System.Windows.Forms.Label lblErrorStatus;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.PictureBox iconRefresh;
+        private System.Windows.Forms.Label lblErrorCount;
+        private System.Windows.Forms.NumericUpDown ntxtCount;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
@@ -657,18 +690,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridView dgvBooks;
-        private System.Windows.Forms.Label lblTitleBook;
-        private System.Windows.Forms.Label lblSelectedBookName;
-        private System.Windows.Forms.RadioButton rBtnStatusDisabled;
-        private System.Windows.Forms.RadioButton rBtnStatusActive;
-        private System.Windows.Forms.Label lblErrorStatus;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.PictureBox iconRefresh;
-        private System.Windows.Forms.Label lblErrorCount;
-        private System.Windows.Forms.NumericUpDown ntxtCount;
-        private System.Windows.Forms.Label label6;
     }
 }

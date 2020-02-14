@@ -15,13 +15,14 @@ namespace LibraryFinalTask.Forms
     public partial class BooksForm : Form
     {
         private readonly LibraryDbContext _db;
-        private readonly Book _selectedBook;
+        private Book _selectedBook;
         public BooksForm()
         {
             _db = new LibraryDbContext();
 
             InitializeComponent();
 
+            FillBooks();
             FillGenreDatas();
             FillAuthorDatas();
             FillLanguageDatas();
@@ -33,11 +34,15 @@ namespace LibraryFinalTask.Forms
         {
             dgvBooks.Rows.Clear();
 
-            List<Book> books = _db.Books.ToList();
+            List<Book> books = _db.Books.Include("Genre")
+                                        .Include("Author")
+                                        .Include("Language")
+                                        .ToList();
 
             foreach (var item in books)
             {
-                dgvBooks.Rows.Add(item.Id, item.Name, item.Genre.Name, item.Author.Name,
+                dgvBooks.Rows.Add(item.Id, item.Name, item.Genre.Name, 
+                                  item.Author.Name + " " + item.Author.Surname,
                                   item.Language.Name, item.Count, item.PriceSale,
                                   item.PriceRent, item.Status ? "Active" : "Disabled");
             }
@@ -101,12 +106,16 @@ namespace LibraryFinalTask.Forms
         {
             txtName.Clear();
 
-            cmbGenre.ResetText();
-            cmbAuthor.ResetText();
-            cmbLanguage.ResetText();
+            cmbGenre.SelectedItem = null;
+            cmbGenre.Text = "";
+            cmbAuthor.SelectedItem = null;
+            cmbAuthor.Text = "";
+            cmbLanguage.SelectedItem = null;
+            cmbLanguage.Text = "";
 
             ntxtSale.Value = 0;
             ntxtRent.Value = 0;
+            ntxtCount.Value = 0;
             rBtnStatusActive.Checked = false;
             rBtnStatusDisabled.Checked = false;
 
@@ -116,6 +125,7 @@ namespace LibraryFinalTask.Forms
             lblErrorLang.Hide();
             lblErrorSale.Hide();
             lblErrorRent.Hide();
+            lblErrorCount.Hide();
             lblErrorStatus.Hide();
 
             lblTitleBook.Hide();
@@ -189,6 +199,24 @@ namespace LibraryFinalTask.Forms
             {
                 lblErrorRent.Hide();
             }
+
+            if (ntxtCount.Value == 0)
+            {
+                lblErrorCount.Show();
+            }
+            else
+            {
+                lblErrorCount.Hide();
+            }
+
+            if (rBtnStatusActive.Checked == false && rBtnStatusDisabled.Checked == false)
+            {
+                lblErrorStatus.Show();
+            }
+            else
+            {
+                lblErrorStatus.Hide();
+            }
             //validation end
 
             if (!string.IsNullOrEmpty(txtName.Text) && cmbGenre.SelectedItem != null
@@ -207,6 +235,9 @@ namespace LibraryFinalTask.Forms
                 book.GenreId = selectedGenre.Value;
                 book.AuthorId = selectedAuthor.Value;
                 book.LanguageId = selectedLanguage.Value;
+                book.PriceSale = ntxtSale.Value;
+                book.PriceRent = ntxtRent.Value;
+                book.Count = Convert.ToInt32(ntxtCount.Value);
                 book.Status = rBtnStatusActive.Checked ? true : false;
                 book.CreatedAt = DateTime.Now;
 
@@ -219,25 +250,17 @@ namespace LibraryFinalTask.Forms
                 rBtnStatusDisabled.Checked = false;
 
                 FillBooks();
+                ResetForm();
             }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            txtName.Clear();
-            cmbGenre.DataSource = null;
-            cmbAuthor.DataSource = null;
-            cmbLanguage.DataSource = null;
-            ntxtSale.Value = 0;
-            ntxtRent.Value = 0;
-
-            lblErrorName.Hide();
-            lblErrorGenre.Hide();
-            lblErrorAuthor.Hide();
-            lblErrorLang.Hide();
-            lblErrorSale.Hide();
-            lblErrorRent.Hide();
+            ResetForm();
         }
+
+
+
 
         private void IconAddGenre_Click(object sender, EventArgs e)
         {
@@ -264,6 +287,7 @@ namespace LibraryFinalTask.Forms
 
             if (dialog == DialogResult.OK)
             {
+                FillBooks();
                 FillAuthorDatas();
                 FillGenreDatas();
                 FillLanguageDatas();
@@ -280,6 +304,191 @@ namespace LibraryFinalTask.Forms
             public override string ToString()
             {
                 return firstName + " " + secondName;
+            }
+        }
+
+        private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ResetForm();
+
+            int id = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedBook = _db.Books.Find(id);
+
+            lblTitleBook.Show();
+            lblSelectedBookName.Show();
+            lblSelectedBookName.Text = _selectedBook.Name + " (" + _selectedBook.Language.Name + ")";
+
+            btnUpdate.Show();
+            btnDelete.Show();
+
+            //ComboboxItem selectedGenre = cmbGenre.SelectedItem as ComboboxItem;
+            //selectedGenre.firstName = _selectedBook.Genre.Name;
+            //selectedGenre.Value = _selectedBook.GenreId;
+
+            //ComboboxItem selectedAuthor = cmbAuthor.SelectedItem as ComboboxItem;
+            //selectedAuthor.firstName = _selectedBook.Author.Name;
+            //selectedAuthor.secondName = _selectedBook.Author.Surname;
+            //selectedAuthor.Value = _selectedBook.AuthorId;
+
+            //ComboboxItem selectedLanguage = cmbLanguage.SelectedItem as ComboboxItem;
+            //selectedLanguage.firstName = _selectedBook.Language.Name;
+            //selectedLanguage.Value = _selectedBook.LanguageId;
+
+            txtName.Text = _selectedBook.Name;
+            cmbGenre.Text = _selectedBook.Genre.Name;
+            cmbAuthor.Text = _selectedBook.Author.Name;
+            cmbLanguage.Text = _selectedBook.Language.Name;
+
+            ntxtSale.Value = Convert.ToInt32(_selectedBook.PriceSale);
+            ntxtRent.Value = Convert.ToInt32(_selectedBook.PriceRent);
+
+            ntxtCount.Value = Convert.ToInt32(_selectedBook.Count);
+
+            if (_selectedBook.Status == false)
+            {
+                rBtnStatusDisabled.Checked = true;
+            }
+            else
+            {
+                rBtnStatusActive.Checked = true;
+            }
+
+            btnCreate.Enabled = false;
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            //validation start
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                lblErrorName.Show();
+            }
+            else
+            {
+                lblErrorName.Hide();
+            }
+
+            if (cmbGenre.SelectedItem == null)
+            {
+                lblErrorGenre.Show();
+            }
+            else
+            {
+                lblErrorGenre.Hide();
+            }
+
+            if (cmbAuthor.SelectedItem == null)
+            {
+                lblErrorAuthor.Show();
+            }
+            else
+            {
+                lblErrorAuthor.Hide();
+            }
+
+            if (cmbLanguage.SelectedItem == null)
+            {
+                lblErrorLang.Show();
+            }
+            else
+            {
+                lblErrorLang.Hide();
+            }
+
+            if (ntxtSale.Value == 0)
+            {
+                lblErrorSale.Show();
+            }
+            else
+            {
+                lblErrorSale.Hide();
+            }
+
+            if (ntxtRent.Value == 0)
+            {
+                lblErrorRent.Show();
+            }
+            else
+            {
+                lblErrorRent.Hide();
+            }
+
+            if (ntxtCount.Value == 0)
+            {
+                lblErrorCount.Show();
+            }
+            else
+            {
+                lblErrorCount.Hide();
+            }
+
+            if (rBtnStatusActive.Checked == false && rBtnStatusDisabled.Checked == false)
+            {
+                lblErrorStatus.Show();
+            }
+            else
+            {
+                lblErrorStatus.Hide();
+            }
+            //validation end
+
+            if (!string.IsNullOrEmpty(txtName.Text) && cmbGenre.SelectedItem != null
+                                                    && cmbAuthor.SelectedItem != null
+                                                    && cmbLanguage.SelectedItem != null
+                                                    && (rBtnStatusActive.Checked ||
+                                                    rBtnStatusDisabled.Checked))
+            {
+                DialogResult dialog = MessageBox.Show("Selected book will be updated", "Update Book", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    ComboboxItem selectedGenre = cmbGenre.SelectedItem as ComboboxItem;
+                    ComboboxItem selectedAuthor = cmbAuthor.SelectedItem as ComboboxItem;
+                    ComboboxItem selectedLanguage = cmbLanguage.SelectedItem as ComboboxItem;
+
+                    _selectedBook.Name = txtName.Text;
+                    _selectedBook.GenreId = selectedGenre.Value;
+                    _selectedBook.AuthorId = selectedAuthor.Value;
+                    _selectedBook.LanguageId = selectedLanguage.Value;
+                    _selectedBook.PriceSale = ntxtSale.Value;
+                    _selectedBook.PriceRent = ntxtRent.Value;
+                    _selectedBook.Count = Convert.ToInt32(ntxtCount.Value);
+                    _selectedBook.Status = rBtnStatusActive.Checked ? true : false;
+
+                    _db.SaveChanges();
+
+                    FillBooks();
+                    ResetForm();
+                }
+                else
+                {
+                    ResetForm();
+                }
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (_selectedBook == null)
+            {
+                return;
+            }
+
+            DialogResult dialog = MessageBox.Show("Selected book will be deleted permanently", "Delete Book", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.Yes)
+            {
+                _db.Books.Remove(_selectedBook);
+
+                _db.SaveChanges();
+
+                FillBooks();
+                ResetForm();
+            }
+            else
+            {
+                ResetForm();
             }
         }
     }
