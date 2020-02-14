@@ -44,7 +44,7 @@ namespace LibraryFinalTask.Forms
             rBtnStatusDisabled.Checked = false;
 
             lblErrorName.Hide();
-            lblerrorSurname.Hide();
+            lblErrorSurname.Hide();
             lblErrorStatus.Hide();
 
             lblTitleSelected.Hide();
@@ -78,11 +78,11 @@ namespace LibraryFinalTask.Forms
 
             if (string.IsNullOrEmpty(txtSurname.Text))
             {
-                lblerrorSurname.Show();
+                lblErrorSurname.Show();
             }
             else
             {
-                lblerrorSurname.Hide();
+                lblErrorSurname.Hide();
             }
 
             if (!(rBtnStatusActive.Checked) && !(rBtnStatusDisabled.Checked))
@@ -140,11 +140,11 @@ namespace LibraryFinalTask.Forms
 
             if (string.IsNullOrEmpty(txtSurname.Text))
             {
-                lblerrorSurname.Show();
+                lblErrorSurname.Show();
             }
             else
             {
-                lblerrorSurname.Hide();
+                lblErrorSurname.Hide();
             }
 
             if (!(rBtnStatusActive.Checked) && !(rBtnStatusDisabled.Checked))
@@ -225,10 +225,10 @@ namespace LibraryFinalTask.Forms
 
         private void DgvAuthors_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (lblErrorName.Visible || lblerrorSurname.Visible || lblErrorStatus.Visible)
+            if (lblErrorName.Visible || lblErrorSurname.Visible || lblErrorStatus.Visible)
             {
                 lblErrorName.Hide();
-                lblerrorSurname.Hide();
+                lblErrorSurname.Hide();
                 lblErrorStatus.Hide();
             }
 

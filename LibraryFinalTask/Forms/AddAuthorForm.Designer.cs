@@ -50,7 +50,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
-            this.lblerrorSurname = new System.Windows.Forms.Label();
+            this.lblErrorSurname = new System.Windows.Forms.Label();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -310,16 +310,16 @@
             this.txtSurname.Size = new System.Drawing.Size(166, 20);
             this.txtSurname.TabIndex = 62;
             // 
-            // lblerrorSurname
+            // lblErrorSurname
             // 
-            this.lblerrorSurname.AutoSize = true;
-            this.lblerrorSurname.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorSurname.Location = new System.Drawing.Point(96, 239);
-            this.lblerrorSurname.Name = "lblerrorSurname";
-            this.lblerrorSurname.Size = new System.Drawing.Size(79, 13);
-            this.lblerrorSurname.TabIndex = 64;
-            this.lblerrorSurname.Text = "*Enter surname";
-            this.lblerrorSurname.Visible = false;
+            this.lblErrorSurname.AutoSize = true;
+            this.lblErrorSurname.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorSurname.Location = new System.Drawing.Point(96, 239);
+            this.lblErrorSurname.Name = "lblErrorSurname";
+            this.lblErrorSurname.Size = new System.Drawing.Size(79, 13);
+            this.lblErrorSurname.TabIndex = 64;
+            this.lblErrorSurname.Text = "*Enter surname";
+            this.lblErrorSurname.Visible = false;
             // 
             // Column4
             // 
@@ -375,7 +375,7 @@
             this.Controls.Add(this.rBtnStatusDisabled);
             this.Controls.Add(this.rBtnStatusActive);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.lblerrorSurname);
+            this.Controls.Add(this.lblErrorSurname);
             this.Controls.Add(this.lblErrorName);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.label2);
@@ -426,7 +426,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSurname;
-        private System.Windows.Forms.Label lblerrorSurname;
+        private System.Windows.Forms.Label lblErrorSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

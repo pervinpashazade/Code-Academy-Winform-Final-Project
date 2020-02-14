@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.iconBackspace = new System.Windows.Forms.PictureBox();
             this.cmbSearchCategory = new System.Windows.Forms.ComboBox();
             this.iconSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,14 +70,13 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.iconBackspace = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlInputs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -100,6 +100,17 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1084, 100);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // iconBackspace
+            // 
+            this.iconBackspace.Image = ((System.Drawing.Image)(resources.GetObject("iconBackspace.Image")));
+            this.iconBackspace.Location = new System.Drawing.Point(875, 55);
+            this.iconBackspace.Name = "iconBackspace";
+            this.iconBackspace.Size = new System.Drawing.Size(20, 20);
+            this.iconBackspace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconBackspace.TabIndex = 47;
+            this.iconBackspace.TabStop = false;
+            this.iconBackspace.Click += new System.EventHandler(this.IconBackspace_Click);
             // 
             // cmbSearchCategory
             // 
@@ -153,9 +164,9 @@
             this.lblSelectedFullname.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblSelectedFullname.Location = new System.Drawing.Point(426, 21);
             this.lblSelectedFullname.Name = "lblSelectedFullname";
-            this.lblSelectedFullname.Size = new System.Drawing.Size(109, 13);
+            this.lblSelectedFullname.Size = new System.Drawing.Size(0, 13);
             this.lblSelectedFullname.TabIndex = 41;
-            this.lblSelectedFullname.Text = "Pashazade Pervin";
+            this.lblSelectedFullname.Visible = false;
             // 
             // label13
             // 
@@ -176,6 +187,7 @@
             this.lblTitleSelected.Size = new System.Drawing.Size(55, 13);
             this.lblTitleSelected.TabIndex = 41;
             this.lblTitleSelected.Text = "Selected :";
+            this.lblTitleSelected.Visible = false;
             // 
             // btnUpdate
             // 
@@ -190,6 +202,8 @@
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -204,6 +218,8 @@
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // iconGoBack
             // 
@@ -461,13 +477,13 @@
             this.label5.TabIndex = 40;
             this.label5.Text = "Email";
             // 
-            // dataGridView1
+            // dgvCustomers
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToDeleteRows = false;
+            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -475,11 +491,12 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(336, 113);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(740, 320);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvCustomers.Location = new System.Drawing.Point(336, 113);
+            this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.ReadOnly = true;
+            this.dgvCustomers.Size = new System.Drawing.Size(740, 320);
+            this.dgvCustomers.TabIndex = 3;
+            this.dgvCustomers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCustomers_RowHeaderMouseDoubleClick);
             // 
             // Column1
             // 
@@ -524,37 +541,26 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // iconBackspace
-            // 
-            this.iconBackspace.Image = ((System.Drawing.Image)(resources.GetObject("iconBackspace.Image")));
-            this.iconBackspace.Location = new System.Drawing.Point(875, 55);
-            this.iconBackspace.Name = "iconBackspace";
-            this.iconBackspace.Size = new System.Drawing.Size(20, 20);
-            this.iconBackspace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconBackspace.TabIndex = 47;
-            this.iconBackspace.TabStop = false;
-            this.iconBackspace.Click += new System.EventHandler(this.IconBackspace_Click);
-            // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1084, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCustomers);
             this.Controls.Add(this.pnlInputs);
             this.Controls.Add(this.pnlHeader);
             this.Name = "CustomersForm";
             this.Text = "CustomersForm";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconGoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlInputs.ResumeLayout(false);
             this.pnlInputs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,7 +597,7 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.ComboBox cmbSearchCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
