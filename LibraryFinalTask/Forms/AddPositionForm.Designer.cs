@@ -37,10 +37,8 @@
             this.lblErrorName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrorStatus = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPositions = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lblTitleSelected = new System.Windows.Forms.Label();
             this.lblSelectedFullname = new System.Windows.Forms.Label();
@@ -51,7 +49,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,19 +156,6 @@
             this.label52.TabIndex = 63;
             this.label52.Text = "Name";
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
             // lblErrorStatus
             // 
             this.lblErrorStatus.AutoSize = true;
@@ -179,20 +167,22 @@
             this.lblErrorStatus.Text = "*Select status";
             this.lblErrorStatus.Visible = false;
             // 
-            // dataGridView1
+            // dgvPositions
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPositions.AllowUserToAddRows = false;
+            this.dgvPositions.AllowUserToDeleteRows = false;
+            this.dgvPositions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(306, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(191, 170);
-            this.dataGridView1.TabIndex = 61;
+            this.Column2,
+            this.Column3});
+            this.dgvPositions.Location = new System.Drawing.Point(316, 166);
+            this.dgvPositions.Name = "dgvPositions";
+            this.dgvPositions.ReadOnly = true;
+            this.dgvPositions.Size = new System.Drawing.Size(191, 170);
+            this.dgvPositions.TabIndex = 61;
+            this.dgvPositions.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPositions_RowHeaderMouseDoubleClick);
             // 
             // btnUpdate
             // 
@@ -200,13 +190,15 @@
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdate.Location = new System.Drawing.Point(306, 124);
+            this.btnUpdate.Location = new System.Drawing.Point(316, 124);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 26);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // lblTitleSelected
             // 
@@ -217,6 +209,7 @@
             this.lblTitleSelected.Size = new System.Drawing.Size(55, 13);
             this.lblTitleSelected.TabIndex = 59;
             this.lblTitleSelected.Text = "Selected :";
+            this.lblTitleSelected.Visible = false;
             // 
             // lblSelectedFullname
             // 
@@ -225,14 +218,13 @@
             this.lblSelectedFullname.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblSelectedFullname.Location = new System.Drawing.Point(115, 131);
             this.lblSelectedFullname.Name = "lblSelectedFullname";
-            this.lblSelectedFullname.Size = new System.Drawing.Size(109, 13);
+            this.lblSelectedFullname.Size = new System.Drawing.Size(0, 13);
             this.lblSelectedFullname.TabIndex = 60;
-            this.lblSelectedFullname.Text = "Pashazade Pervin";
             // 
             // iconBackspace
             // 
             this.iconBackspace.Image = ((System.Drawing.Image)(resources.GetObject("iconBackspace.Image")));
-            this.iconBackspace.Location = new System.Drawing.Point(450, 42);
+            this.iconBackspace.Location = new System.Drawing.Point(460, 42);
             this.iconBackspace.Name = "iconBackspace";
             this.iconBackspace.Size = new System.Drawing.Size(20, 20);
             this.iconBackspace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -244,7 +236,7 @@
             // 
             this.iconSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconSearch.Image = ((System.Drawing.Image)(resources.GetObject("iconSearch.Image")));
-            this.iconSearch.Location = new System.Drawing.Point(476, 42);
+            this.iconSearch.Location = new System.Drawing.Point(486, 42);
             this.iconSearch.Name = "iconSearch";
             this.iconSearch.Size = new System.Drawing.Size(21, 21);
             this.iconSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -254,7 +246,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(306, 43);
+            this.txtSearch.Location = new System.Drawing.Point(316, 43);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(147, 20);
             this.txtSearch.TabIndex = 1;
@@ -301,13 +293,34 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDelete.Location = new System.Drawing.Point(388, 123);
+            this.btnDelete.Location = new System.Drawing.Point(398, 123);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 27);
             this.btnDelete.TabIndex = 58;
             this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Status";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // AddPositionForm
             // 
@@ -324,7 +337,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label52);
             this.Controls.Add(this.lblErrorStatus);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPositions);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblTitleSelected);
             this.Controls.Add(this.lblSelectedFullname);
@@ -333,7 +346,7 @@
             this.Name = "AddPositionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library App - Positions";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBackspace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -354,10 +367,8 @@
         private System.Windows.Forms.Label lblErrorName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label lblErrorStatus;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPositions;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label lblTitleSelected;
         private System.Windows.Forms.Label lblSelectedFullname;
@@ -368,5 +379,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -23,12 +23,12 @@ namespace LibraryFinalTask.Forms
 
             InitializeComponent();
 
-            FillAuthors();
+            FillLanguages();
         }
 
         #region fillMethods
 
-        public void FillAuthors()
+        public void FillLanguages()
         {
             dgvLanguages.Rows.Clear();
 
@@ -65,23 +65,7 @@ namespace LibraryFinalTask.Forms
 
         #endregion
 
-        private void IconSearch_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtSearch.Text))
-            {
-                if (string.IsNullOrEmpty(txtSearch.Text))
-                {
-                    MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
-                }
-            }
-        }
-
-        private void IconBackspace_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
-        }
-
-
+        #region btnClicks
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
@@ -123,7 +107,7 @@ namespace LibraryFinalTask.Forms
                 rBtnStatusActive.Checked = false;
                 rBtnStatusDisabled.Checked = false;
 
-                FillAuthors();
+                FillLanguages();
             }
         }
 
@@ -166,7 +150,7 @@ namespace LibraryFinalTask.Forms
 
                     _db.SaveChanges();
 
-                    FillAuthors();
+                    FillLanguages();
                     ResetForm();
                 }
                 else
@@ -184,7 +168,7 @@ namespace LibraryFinalTask.Forms
                 return;
             }
 
-            DialogResult dialog = MessageBox.Show("Selected language will be deleted permanently", "Delete Author", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialog = MessageBox.Show("Selected language will be deleted permanently", "Delete Position", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dialog == DialogResult.Yes)
             {
@@ -192,7 +176,7 @@ namespace LibraryFinalTask.Forms
 
                 _db.SaveChanges();
 
-                FillAuthors();
+                FillLanguages();
                 ResetForm();
             }
             else
@@ -200,6 +184,25 @@ namespace LibraryFinalTask.Forms
                 ResetForm();
             }
         }
+
+        #endregion
+
+        private void IconSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSearch.Text))
+            {
+                if (string.IsNullOrEmpty(txtSearch.Text))
+                {
+                    MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
+                }
+            }
+        }
+
+        private void IconBackspace_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+        }
+
 
         private void DgvLanguages_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {

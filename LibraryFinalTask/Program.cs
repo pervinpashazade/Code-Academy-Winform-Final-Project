@@ -17,7 +17,7 @@ namespace LibraryFinalTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddLanguageForm());
+            Application.Run(new AddPositionForm());
         }
     }
 }
