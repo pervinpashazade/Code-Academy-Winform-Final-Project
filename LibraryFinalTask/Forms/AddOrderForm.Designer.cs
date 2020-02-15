@@ -663,6 +663,7 @@
             this.btnCancelCrtOrder.TabStop = false;
             this.btnCancelCrtOrder.Text = "Cancel";
             this.btnCancelCrtOrder.UseVisualStyleBackColor = false;
+            this.btnCancelCrtOrder.Click += new System.EventHandler(this.BtnCancelCrtOrder_Click);
             // 
             // btnCreateCrtOrder
             // 

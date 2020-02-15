@@ -17,6 +17,8 @@ namespace LibraryFinalTask.Forms
         private readonly LibraryDbContext _db;
         private Customer _selectedCustomer;
         private Book _selectedBook;
+        private Order _currentOrder;
+
         public AddOrderForm()
         {
             _db = new LibraryDbContext();
@@ -60,12 +62,73 @@ namespace LibraryFinalTask.Forms
             }
         }
 
+        public void ResetForm()
+        {
+            _selectedCustomer = null;
+            _selectedBook = null;
+
+            //lblSeller.Text = "";
+            lblCustomer.Text = "";
+            lblCustomerId.Text = "";
+            lblCustomerEmail.Text = "";
+            lblCustomerPhone.Text = "";
+
+            txtSearchCustCrtOrder.Clear();
+            txtSearchBookCrtOrder.Clear();
+
+            rBtnRentOrder.Checked = true;
+
+            lblSlctBookName.Text = "";
+            lblBookPrice.Text = "";
+            ntxtCountOrder.Value = 0;
+            dateReturnOrder.Value = DateTime.Now;
+        }
+
         #endregion
 
 
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
-            //panelCreateOrder.Hide();
+            //validations start
+            if (_selectedCustomer == null)
+            {
+                DialogResult dialog = MessageBox.Show("Please, select customer!", "Oops, Error!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+                if (dialog == DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (_selectedBook == null || ntxtCountOrder.Value < 1)
+            {
+                DialogResult dialog = MessageBox.Show("Please, select minimum one book!", "Oops, Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                if (dialog == DialogResult.OK)
+                {
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            //validations end
+
+
+            Order order = new Order();
+
+            order.SellerId = 1; //static
+            order.CustomerId = _selectedCustomer.Id;
+            order.TotalPrice = 0;
+            order.CreatedAt = DateTime.Now;
+
+            List<OrderItem> orderItems = new List<OrderItem>();
+
         }
 
         private void IcnSearchCustCrtOrder_Click(object sender, EventArgs e)
@@ -109,10 +172,13 @@ namespace LibraryFinalTask.Forms
 
             _selectedCustomer = _db.Customers.Find(customerId);
 
-            lblCustomer.Text = _selectedCustomer.Name + " " + _selectedCustomer.Surname;
-            lblCustomerId.Text = "# " + _selectedCustomer.Id;
-            lblCustomerEmail.Text = _selectedCustomer.Email;
-            lblCustomerPhone.Text = _selectedCustomer.Phone;
+            if (_selectedCustomer != null)
+            {
+                lblCustomer.Text = _selectedCustomer.Name + " " + _selectedCustomer.Surname;
+                lblCustomerId.Text = "# " + _selectedCustomer.Id;
+                lblCustomerEmail.Text = _selectedCustomer.Email;
+                lblCustomerPhone.Text = _selectedCustomer.Phone;
+            }
         }
 
         private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -123,14 +189,20 @@ namespace LibraryFinalTask.Forms
 
             if (rBtnRentOrder.Checked == true)
             {
-                lblSlctBookName.Text = _selectedBook.Name;
-                lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
+                if (_selectedBook != null)
+                {
+                    lblSlctBookName.Text = _selectedBook.Name;
+                    lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
+                }
             }
 
             if (rBtnSaleOrder.Checked == true)
             {
-                lblSlctBookName.Text = _selectedBook.Name;
-                lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
+                if (_selectedBook != null)
+                {
+                    lblSlctBookName.Text = _selectedBook.Name;
+                    lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
+                }
             }
 
         }
@@ -169,5 +241,12 @@ namespace LibraryFinalTask.Forms
             dateReturnOrder.MinDate = DateTime.Now;
             dateReturnOrder.MaxDate = DateTime.Now.AddDays(15);
         }
+
+        private void BtnCancelCrtOrder_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+
     }
 }
