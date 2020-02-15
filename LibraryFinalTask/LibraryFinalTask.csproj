@@ -131,6 +131,10 @@
     <Compile Include="Migrations\202002121618201_ModelsDataAnnotationsAdded.designer.cs">
       <DependentUpon>202002121618201_ModelsDataAnnotationsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002152042442_OrderItemModelAmoutDecimal.cs" />
+    <Compile Include="Migrations\202002152042442_OrderItemModelAmoutDecimal.designer.cs">
+      <DependentUpon>202002152042442_OrderItemModelAmoutDecimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002121618201_ModelsDataAnnotationsAdded.resx">
       <DependentUpon>202002121618201_ModelsDataAnnotationsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002152042442_OrderItemModelAmoutDecimal.resx">
+      <DependentUpon>202002152042442_OrderItemModelAmoutDecimal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -243,6 +250,7 @@
     <Content Include="Shared\icons\tick %283%29.png" />
     <Content Include="Shared\icons\tick %284%29.png" />
     <Content Include="Shared\icons\tick.png" />
+    <Content Include="Shared\icons\trash %281%29.png" />
     <Content Include="Shared\icons\undo.png" />
     <Content Include="Shared\icons\unlock %281%29.png" />
     <Content Include="Shared\icons\unlock.png" />
@@ -251,6 +259,7 @@
     <Content Include="Shared\icons\plus.png" />
     <Content Include="Shared\icons\warning.png" />
     <Content Include="Shared\icons\refresh.png" />
+    <Content Include="Shared\icons\trash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

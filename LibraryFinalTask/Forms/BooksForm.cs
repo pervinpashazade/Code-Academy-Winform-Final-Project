@@ -28,7 +28,7 @@ namespace LibraryFinalTask.Forms
             FillLanguageDatas();
         }
 
-
+        //methods start
         #region methods
         public void FillBooks()
         {
@@ -142,6 +142,10 @@ namespace LibraryFinalTask.Forms
         }
 
         #endregion
+        //methods end
+
+        //btn clicks (CRUD) start
+        #region btnClicks
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
@@ -252,109 +256,6 @@ namespace LibraryFinalTask.Forms
                 FillBooks();
                 ResetForm();
             }
-        }
-
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            ResetForm();
-        }
-
-
-
-
-        private void IconAddGenre_Click(object sender, EventArgs e)
-        {
-            AddBookGenreForm addBookGenreForm = new AddBookGenreForm();
-            addBookGenreForm.ShowDialog();
-        }
-
-        private void IconAddAuthor_Click(object sender, EventArgs e)
-        {
-            AddAuthorForm addAuthorForm = new AddAuthorForm();
-            addAuthorForm.ShowDialog();
-        }
-
-        private void IconAddLang_Click(object sender, EventArgs e)
-        {
-            AddLanguageForm addLanguageForm = new AddLanguageForm();
-            addLanguageForm.ShowDialog();
-        }
-
-
-        private void IconRefresh_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Refresh Form datas?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (dialog == DialogResult.OK)
-            {
-                FillBooks();
-                FillAuthorDatas();
-                FillGenreDatas();
-                FillLanguageDatas();
-            }
-        }
-
-        //combobox get
-        public class ComboboxItem
-        {
-            public string firstName { get; set; }
-            public string secondName { get; set; }
-            public int Value { get; set; }
-
-            public override string ToString()
-            {
-                return firstName + " " + secondName;
-            }
-        }
-
-        private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            ResetForm();
-
-            int id = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            _selectedBook = _db.Books.Find(id);
-
-            lblTitleBook.Show();
-            lblSelectedBookName.Show();
-            lblSelectedBookName.Text = _selectedBook.Name + " (" + _selectedBook.Language.Name + ")";
-
-            btnUpdate.Show();
-            btnDelete.Show();
-
-            //ComboboxItem selectedGenre = cmbGenre.SelectedItem as ComboboxItem;
-            //selectedGenre.firstName = _selectedBook.Genre.Name;
-            //selectedGenre.Value = _selectedBook.GenreId;
-
-            //ComboboxItem selectedAuthor = cmbAuthor.SelectedItem as ComboboxItem;
-            //selectedAuthor.firstName = _selectedBook.Author.Name;
-            //selectedAuthor.secondName = _selectedBook.Author.Surname;
-            //selectedAuthor.Value = _selectedBook.AuthorId;
-
-            //ComboboxItem selectedLanguage = cmbLanguage.SelectedItem as ComboboxItem;
-            //selectedLanguage.firstName = _selectedBook.Language.Name;
-            //selectedLanguage.Value = _selectedBook.LanguageId;
-
-            txtName.Text = _selectedBook.Name;
-            cmbGenre.Text = _selectedBook.Genre.Name;
-            cmbAuthor.Text = _selectedBook.Author.Name;
-            cmbLanguage.Text = _selectedBook.Language.Name;
-
-            ntxtSale.Value = Convert.ToInt32(_selectedBook.PriceSale);
-            ntxtRent.Value = Convert.ToInt32(_selectedBook.PriceRent);
-
-            ntxtCount.Value = Convert.ToInt32(_selectedBook.Count);
-
-            if (_selectedBook.Status == false)
-            {
-                rBtnStatusDisabled.Checked = true;
-            }
-            else
-            {
-                rBtnStatusActive.Checked = true;
-            }
-
-            btnCreate.Enabled = false;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -491,5 +392,99 @@ namespace LibraryFinalTask.Forms
                 ResetForm();
             }
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+        #endregion
+        //btn clicks (CRUD) end
+
+
+
+        private void IconAddGenre_Click(object sender, EventArgs e)
+        {
+            AddBookGenreForm addBookGenreForm = new AddBookGenreForm();
+            addBookGenreForm.ShowDialog();
+        }
+
+        private void IconAddAuthor_Click(object sender, EventArgs e)
+        {
+            AddAuthorForm addAuthorForm = new AddAuthorForm();
+            addAuthorForm.ShowDialog();
+        }
+
+        private void IconAddLang_Click(object sender, EventArgs e)
+        {
+            AddLanguageForm addLanguageForm = new AddLanguageForm();
+            addLanguageForm.ShowDialog();
+        }
+
+
+        private void IconRefresh_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Refresh Form datas?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.OK)
+            {
+                FillBooks();
+                FillAuthorDatas();
+                FillGenreDatas();
+                FillLanguageDatas();
+            }
+        }
+
+        //combobox get
+        public class ComboboxItem
+        {
+            public string firstName { get; set; }
+            public string secondName { get; set; }
+            public int Value { get; set; }
+
+            public override string ToString()
+            {
+                return firstName + " " + secondName;
+            }
+        }
+
+        private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ResetForm();
+
+            int id = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedBook = _db.Books.Find(id);
+
+            lblTitleBook.Show();
+            lblSelectedBookName.Show();
+            lblSelectedBookName.Text = _selectedBook.Name + " (" + _selectedBook.Language.Name + ")";
+
+            btnUpdate.Show();
+            btnDelete.Show();
+
+            txtName.Text = _selectedBook.Name;
+            cmbGenre.Text = _selectedBook.Genre.Name;
+            cmbAuthor.Text = _selectedBook.Author.Name;
+            cmbLanguage.Text = _selectedBook.Language.Name;
+
+            ntxtSale.Value = Convert.ToInt32(_selectedBook.PriceSale);
+            ntxtRent.Value = Convert.ToInt32(_selectedBook.PriceRent);
+
+            ntxtCount.Value = Convert.ToInt32(_selectedBook.Count);
+
+            if (_selectedBook.Status == false)
+            {
+                rBtnStatusDisabled.Checked = true;
+            }
+            else
+            {
+                rBtnStatusActive.Checked = true;
+            }
+
+            btnCreate.Enabled = false;
+        }
+
+
     }
 }

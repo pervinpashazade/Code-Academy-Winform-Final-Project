@@ -67,8 +67,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.lblTotalCrtOrder = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblOrderTotalPrice = new System.Windows.Forms.Label();
+            this.lbltitleTotal = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnAddToCart = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -76,12 +76,6 @@
             this.btnCreateCrtOrder = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.icnClearTxtSearchBook = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -103,7 +97,15 @@
             this.icnSearchCustCrtOrder = new System.Windows.Forms.PictureBox();
             this.txtSearchCustCrtOrder = new System.Windows.Forms.TextBox();
             this.pnlCrtOrderRight = new System.Windows.Forms.Panel();
-            this.dgvCheckOutCrtOrder = new System.Windows.Forms.DataGridView();
+            this.dgvCheckOutItems = new System.Windows.Forms.DataGridView();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,8 +113,9 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.iconDeleteItem = new System.Windows.Forms.PictureBox();
+            this.lblSelectedItem = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -139,8 +142,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchCust)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnSearchCustCrtOrder)).BeginInit();
             this.pnlCrtOrderRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOutCrtOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOutItems)).BeginInit();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconDeleteItem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -585,36 +589,37 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.lblTotalCrtOrder);
-            this.panel16.Controls.Add(this.label15);
+            this.panel16.Controls.Add(this.lblOrderTotalPrice);
+            this.panel16.Controls.Add(this.lbltitleTotal);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(0, 100);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(200, 55);
             this.panel16.TabIndex = 3;
             // 
-            // lblTotalCrtOrder
+            // lblOrderTotalPrice
             // 
-            this.lblTotalCrtOrder.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTotalCrtOrder.AutoSize = true;
-            this.lblTotalCrtOrder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTotalCrtOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lblTotalCrtOrder.Location = new System.Drawing.Point(87, 18);
-            this.lblTotalCrtOrder.Name = "lblTotalCrtOrder";
-            this.lblTotalCrtOrder.Size = new System.Drawing.Size(88, 19);
-            this.lblTotalCrtOrder.TabIndex = 1;
-            this.lblTotalCrtOrder.Text = "22.50  AZN";
+            this.lblOrderTotalPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblOrderTotalPrice.AutoSize = true;
+            this.lblOrderTotalPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblOrderTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lblOrderTotalPrice.Location = new System.Drawing.Point(87, 18);
+            this.lblOrderTotalPrice.Name = "lblOrderTotalPrice";
+            this.lblOrderTotalPrice.Size = new System.Drawing.Size(0, 19);
+            this.lblOrderTotalPrice.TabIndex = 1;
+            this.lblOrderTotalPrice.Visible = false;
             // 
-            // label15
+            // lbltitleTotal
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label15.Location = new System.Drawing.Point(25, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 19);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Total :";
+            this.lbltitleTotal.AutoSize = true;
+            this.lbltitleTotal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbltitleTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbltitleTotal.Location = new System.Drawing.Point(25, 18);
+            this.lbltitleTotal.Name = "lbltitleTotal";
+            this.lbltitleTotal.Size = new System.Drawing.Size(56, 19);
+            this.lbltitleTotal.TabIndex = 2;
+            this.lbltitleTotal.Text = "Total :";
+            this.lbltitleTotal.Visible = false;
             // 
             // panel15
             // 
@@ -668,6 +673,7 @@
             this.btnCancelCrtOrder.TabStop = false;
             this.btnCancelCrtOrder.Text = "Cancel";
             this.btnCancelCrtOrder.UseVisualStyleBackColor = false;
+            this.btnCancelCrtOrder.Visible = false;
             this.btnCancelCrtOrder.Click += new System.EventHandler(this.BtnCancelCrtOrder_Click);
             // 
             // btnCreateCrtOrder
@@ -684,8 +690,9 @@
             this.btnCreateCrtOrder.Size = new System.Drawing.Size(175, 33);
             this.btnCreateCrtOrder.TabIndex = 73;
             this.btnCreateCrtOrder.TabStop = false;
-            this.btnCreateCrtOrder.Text = "Create";
+            this.btnCreateCrtOrder.Text = "Check out";
             this.btnCreateCrtOrder.UseVisualStyleBackColor = false;
+            this.btnCreateCrtOrder.Visible = false;
             // 
             // panel8
             // 
@@ -708,6 +715,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
+            this.Column12,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.Column6});
@@ -718,43 +726,6 @@
             this.dgvBooks.Size = new System.Drawing.Size(413, 101);
             this.dgvBooks.TabIndex = 3;
             this.dgvBooks.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBooks_RowHeaderMouseDoubleClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Sale Price";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Rent Price";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Count";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // panel11
             // 
@@ -969,7 +940,7 @@
             // pnlCrtOrderRight
             // 
             this.pnlCrtOrderRight.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlCrtOrderRight.Controls.Add(this.dgvCheckOutCrtOrder);
+            this.pnlCrtOrderRight.Controls.Add(this.dgvCheckOutItems);
             this.pnlCrtOrderRight.Controls.Add(this.panel12);
             this.pnlCrtOrderRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlCrtOrderRight.Location = new System.Drawing.Point(413, 255);
@@ -977,13 +948,13 @@
             this.pnlCrtOrderRight.Size = new System.Drawing.Size(501, 366);
             this.pnlCrtOrderRight.TabIndex = 3;
             // 
-            // dgvCheckOutCrtOrder
+            // dgvCheckOutItems
             // 
-            this.dgvCheckOutCrtOrder.AllowUserToAddRows = false;
-            this.dgvCheckOutCrtOrder.AllowUserToDeleteRows = false;
-            this.dgvCheckOutCrtOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCheckOutCrtOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCheckOutCrtOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCheckOutItems.AllowUserToAddRows = false;
+            this.dgvCheckOutItems.AllowUserToDeleteRows = false;
+            this.dgvCheckOutItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCheckOutItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCheckOutItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.Column7,
@@ -991,12 +962,68 @@
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dgvCheckOutCrtOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCheckOutCrtOrder.Location = new System.Drawing.Point(0, 35);
-            this.dgvCheckOutCrtOrder.Name = "dgvCheckOutCrtOrder";
-            this.dgvCheckOutCrtOrder.ReadOnly = true;
-            this.dgvCheckOutCrtOrder.Size = new System.Drawing.Size(501, 331);
-            this.dgvCheckOutCrtOrder.TabIndex = 3;
+            this.dgvCheckOutItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCheckOutItems.Location = new System.Drawing.Point(0, 35);
+            this.dgvCheckOutItems.Name = "dgvCheckOutItems";
+            this.dgvCheckOutItems.ReadOnly = true;
+            this.dgvCheckOutItems.Size = new System.Drawing.Size(501, 331);
+            this.dgvCheckOutItems.TabIndex = 3;
+            this.dgvCheckOutItems.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCheckOutItems_RowHeaderMouseDoubleClick);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
+            this.panel12.Controls.Add(this.label6);
+            this.panel12.Controls.Add(this.lblSelectedItem);
+            this.panel12.Controls.Add(this.iconDeleteItem);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(501, 35);
+            this.panel12.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Language";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Sale Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Rent Price";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Count";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1019,7 +1046,7 @@
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Order";
+            this.Column8.HeaderText = "Type";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
@@ -1041,26 +1068,40 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // panel12
+            // iconDeleteItem
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
-            this.panel12.Controls.Add(this.label19);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(501, 35);
-            this.panel12.TabIndex = 2;
+            this.iconDeleteItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("iconDeleteItem.Image")));
+            this.iconDeleteItem.Location = new System.Drawing.Point(12, 7);
+            this.iconDeleteItem.Name = "iconDeleteItem";
+            this.iconDeleteItem.Size = new System.Drawing.Size(19, 20);
+            this.iconDeleteItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconDeleteItem.TabIndex = 50;
+            this.iconDeleteItem.TabStop = false;
+            this.iconDeleteItem.Visible = false;
+            this.iconDeleteItem.Click += new System.EventHandler(this.IconDeleteItem_Click);
             // 
-            // label19
+            // lblSelectedItem
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label19.Location = new System.Drawing.Point(43, 6);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(97, 22);
-            this.label19.TabIndex = 49;
-            this.label19.Text = "Check Out";
+            this.lblSelectedItem.AutoSize = true;
+            this.lblSelectedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSelectedItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lblSelectedItem.Location = new System.Drawing.Point(121, 10);
+            this.lblSelectedItem.Name = "lblSelectedItem";
+            this.lblSelectedItem.Size = new System.Drawing.Size(0, 16);
+            this.lblSelectedItem.TabIndex = 51;
+            this.lblSelectedItem.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(37, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 15);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Order List :";
             // 
             // AddOrderForm
             // 
@@ -1107,9 +1148,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchCust)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnSearchCustCrtOrder)).EndInit();
             this.pnlCrtOrderRight.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOutCrtOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCheckOutItems)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconDeleteItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1149,26 +1191,19 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel pnlCrtOrderRight;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridView dgvCheckOutCrtOrder;
+        private System.Windows.Forms.DataGridView dgvCheckOutItems;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnCancelCrtOrder;
         private System.Windows.Forms.Button btnCreateCrtOrder;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label lblTotalCrtOrder;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblOrderTotalPrice;
+        private System.Windows.Forms.Label lbltitleTotal;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button btnAddToCart;
         private System.Windows.Forms.RadioButton rBtnRentOrder;
         private System.Windows.Forms.RadioButton rBtnSaleOrder;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DataGridView dgvBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -1194,6 +1229,17 @@
         }
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblSeller;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSlctBookName;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -1201,9 +1247,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.Label lblSeller;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblSlctBookName;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox iconDeleteItem;
+        private System.Windows.Forms.Label lblSelectedItem;
+        private System.Windows.Forms.Label label6;
     }
 }

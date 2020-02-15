@@ -18,6 +18,7 @@ namespace LibraryFinalTask.Forms
         private Customer _selectedCustomer;
         private Book _selectedBook;
         private Order _currentOrder;
+        private OrderItem _selectedItem;
 
         public AddOrderForm()
         {
@@ -57,8 +58,28 @@ namespace LibraryFinalTask.Forms
             {
                 dgvBooks.Rows.Add(item.Id, item.Name, 
                                           item.Author.Name + " " + item.Author.Surname,
-                                          item.PriceSale, item.PriceRent, 
+                                          item.Language.Name, item.PriceSale, item.PriceRent, 
                                           item.Count);
+            }
+        }
+
+        public void FillCheckOutItems()
+        {
+            if (_currentOrder != null)
+            {
+                dgvCheckOutItems.Rows.Clear();
+
+                List<OrderItem> orderItems = _db.OrderItems.Include("Book")
+                                                         .Where(o => o.OrderId == _currentOrder.Id)
+                                                         .ToList();
+
+                foreach (var item in orderItems)
+                {
+                    dgvCheckOutItems.Rows.Add(item.Id, item.Book.Name, item.Count,
+                                              item.IsTypeSale == true? "Sale" : "Rent" ,
+                                              item.Price, item.Amount, 
+                        item.ReturnDate == null? "SALED" : item.ReturnDate.ToString());
+                }
             }
         }
 
@@ -66,8 +87,11 @@ namespace LibraryFinalTask.Forms
         {
             _selectedCustomer = null;
             _selectedBook = null;
+            _currentOrder = null;
+            _selectedItem = null;
 
-            //lblSeller.Text = "";
+
+            lblSeller.Hide();
             lblCustomer.Text = "";
             lblCustomerId.Text = "";
             lblCustomerEmail.Text = "";
@@ -77,11 +101,29 @@ namespace LibraryFinalTask.Forms
             txtSearchBookCrtOrder.Clear();
 
             rBtnRentOrder.Checked = true;
+            rBtnSaleOrder.Hide();
+            rBtnRentOrder.Hide();
 
             lblSlctBookName.Text = "";
+            lblSlctBookName.Hide();
             lblBookPrice.Text = "";
+            lblBookPrice.Hide();
             ntxtCountOrder.Value = 0;
+            ntxtCountOrder.Hide();
             dateReturnOrder.Value = DateTime.Now;
+            dateReturnOrder.Hide();
+
+            lbltitleTotal.Hide();
+            lblOrderTotalPrice.Text = "";
+            lblOrderTotalPrice.Hide();
+
+            dgvCustomers.Enabled = true;
+
+            btnCreateCrtOrder.Hide();
+            btnCancelCrtOrder.Hide();
+
+            iconDeleteItem.Hide();
+            lblSelectedItem.Hide();
         }
 
         #endregion
@@ -156,7 +198,16 @@ namespace LibraryFinalTask.Forms
                 orderItem.Amount = Convert.ToInt32(priceItem * ntxtCountOrder.Value);
 
                 orderItem.OrderDate = DateTime.Now;
-                orderItem.ReturnDate = dateReturnOrder.Value;
+
+                if (dateReturnOrder.Visible == true)
+                {
+                    orderItem.ReturnDate = dateReturnOrder.Value;
+                }
+
+                if (dateReturnOrder.Visible == false)
+                {
+                    orderItem.ReturnDate = null;
+                }
 
                 _currentOrder.TotalPrice += Convert.ToInt32(priceItem * ntxtCountOrder.Value);
 
@@ -165,7 +216,12 @@ namespace LibraryFinalTask.Forms
 
                 MessageBox.Show("Book successfully added to shopping cart !", "New Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                lbltitleTotal.Show();
+                lblOrderTotalPrice.Text = _currentOrder.TotalPrice.ToString() + "  AZN";
+                lblOrderTotalPrice.Show();
+
                 dgvCustomers.Enabled = false;
+                btnCreateCrtOrder.Show();
                 _selectedBook = null;
 
                 //clear old datas for new orderItem
@@ -178,11 +234,12 @@ namespace LibraryFinalTask.Forms
                 lblBookPrice.Text = "";
                 lblBookPrice.Hide();
                 ntxtCountOrder.Hide();
+                ntxtCountOrder.Value = 0;
                 dateReturnOrder.Hide();
                 #endregion
 
                 //fill Chech out list
-                //FillCheckOutItems();
+                FillCheckOutItems();
             }
 
         }
@@ -224,6 +281,11 @@ namespace LibraryFinalTask.Forms
         //dgv customers row header double click
         private void DgvCustomersCrtOrder_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (btnCancelCrtOrder.Visible == false)
+            {
+                btnCancelCrtOrder.Show();
+            }
+
             int customerId = Convert.ToInt32(dgvCustomers.Rows[e.RowIndex].Cells[0].Value.ToString());
 
             _selectedCustomer = _db.Customers.Find(customerId);
@@ -242,6 +304,11 @@ namespace LibraryFinalTask.Forms
 
         private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (btnCancelCrtOrder.Visible == false)
+            {
+                btnCancelCrtOrder.Show();
+            }
+
             int bookId = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
 
             _selectedBook = _db.Books.Find(bookId);
@@ -274,6 +341,7 @@ namespace LibraryFinalTask.Forms
         }
 
 
+        //radio button toggle datetimepicker start
         private void RBtnSaleOrder_CheckedChanged(object sender, EventArgs e)
         {
             rBtnSaleOrder.ForeColor = Color.FromArgb(133, 240, 240);
@@ -301,6 +369,9 @@ namespace LibraryFinalTask.Forms
             }
 
         }
+        //radio button toggle datetimepicker end
+
+
 
         private void AddOrderForm_Load(object sender, EventArgs e)
         {
@@ -310,9 +381,78 @@ namespace LibraryFinalTask.Forms
 
         private void BtnCancelCrtOrder_Click(object sender, EventArgs e)
         {
-            ResetForm();
+            DialogResult dialog = MessageBox.Show("Are you sure to cancel the process ?", "Cancel Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.OK)
+            {
+                if (_currentOrder != null)
+                {
+                    int orderId = _currentOrder.Id;
+
+                    _db.OrderItems.RemoveRange(_db.OrderItems.Where(o => o.OrderId == orderId));
+                    _db.Orders.Remove(_currentOrder);
+                    _db.SaveChanges();
+
+                    FillCheckOutItems();
+                    ResetForm();
+                }
+                if (_currentOrder == null)
+                {
+                    ResetForm();
+                }
+
+            }
+
         }
 
+        private void DgvCheckOutItems_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvCheckOutItems.Rows[e.RowIndex].Cells[0].Value.ToString());
 
+            _selectedItem = _db.OrderItems.Find(id);
+
+            iconDeleteItem.Show();
+            lblSelectedItem.Show();
+
+            lblSelectedItem.Text = _selectedItem.Book.Name;
+        }
+
+        private void IconDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedItem == null)
+            {
+                return;
+            }
+
+            iconDeleteItem.Show();
+            lblSelectedItem.Show();
+            lblSelectedItem.Text = _selectedItem.Book.Name;
+
+            DialogResult dialog = MessageBox.Show("Selected item ' " + _selectedItem.Book.Name +  " ' will be removed from check out list", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.Yes)
+            {
+                _db.OrderItems.Remove(_selectedItem);
+
+                _db.SaveChanges();
+
+                FillCheckOutItems();
+
+                iconDeleteItem.Hide();
+                lblSelectedItem.Text = "";
+                lblSelectedItem.Hide();
+
+                _currentOrder.TotalPrice -= _selectedItem.Amount;
+                lblOrderTotalPrice.Text = _currentOrder.TotalPrice.ToString() + "  AZN";
+            }
+            else
+            {
+                iconDeleteItem.Hide();
+                lblSelectedItem.Text = "";
+                lblSelectedItem.Hide();
+
+                _selectedItem = null;
+            }
+        }
     }
 }
