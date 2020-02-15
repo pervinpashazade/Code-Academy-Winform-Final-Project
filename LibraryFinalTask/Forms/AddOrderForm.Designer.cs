@@ -43,26 +43,26 @@
             this.btnMenuCreateOrder = new System.Windows.Forms.Button();
             this.pnlCrtOrderHeader = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.dateReturnCrtOrder = new System.Windows.Forms.DateTimePicker();
-            this.ntxtCountCrtOrder = new System.Windows.Forms.NumericUpDown();
-            this.rBtnRentCrtOrder = new System.Windows.Forms.RadioButton();
-            this.rBtnSaleCrtOrder = new System.Windows.Forms.RadioButton();
-            this.lblBookPriceCrtOrder = new System.Windows.Forms.Label();
-            this.lblBookNameCrtOrder = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.lblSlctBookName = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dateReturnOrder = new System.Windows.Forms.DateTimePicker();
+            this.ntxtCountOrder = new System.Windows.Forms.NumericUpDown();
+            this.rBtnRentOrder = new System.Windows.Forms.RadioButton();
+            this.rBtnSaleOrder = new System.Windows.Forms.RadioButton();
+            this.lblBookPrice = new System.Windows.Forms.Label();
+            this.lblReturnDate = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblCustomerPhone = new System.Windows.Forms.Label();
             this.lblCustomerEmail = new System.Windows.Forms.Label();
             this.lblCustomerId = new System.Windows.Forms.Label();
-            this.lblCustomerCrtOrder = new System.Windows.Forms.Label();
-            this.lblSellerCrtOrder = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblSeller = new System.Windows.Forms.Label();
+            this.lblCustPhone = new System.Windows.Forms.Label();
+            this.lblCustEmail = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -75,7 +75,7 @@
             this.btnCancelCrtOrder = new System.Windows.Forms.Button();
             this.btnCreateCrtOrder = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.dgvBooksCrtOrder = new System.Windows.Forms.DataGridView();
+            this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +90,7 @@
             this.txtSearchBookCrtOrder = new System.Windows.Forms.TextBox();
             this.panelCreateOrder = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.dgvCustomersCrtOrder = new System.Windows.Forms.DataGridView();
+            this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,20 +121,20 @@
             this.panel3.SuspendLayout();
             this.pnlCrtOrderHeader.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ntxtCountCrtOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntxtCountOrder)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBooksCrtOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnSearchBookCrtOrder)).BeginInit();
             this.panelCreateOrder.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomersCrtOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchCust)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnSearchCustCrtOrder)).BeginInit();
@@ -306,93 +306,109 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.dateReturnCrtOrder);
-            this.panel13.Controls.Add(this.ntxtCountCrtOrder);
-            this.panel13.Controls.Add(this.rBtnRentCrtOrder);
-            this.panel13.Controls.Add(this.rBtnSaleCrtOrder);
-            this.panel13.Controls.Add(this.lblBookPriceCrtOrder);
-            this.panel13.Controls.Add(this.lblBookNameCrtOrder);
-            this.panel13.Controls.Add(this.label26);
+            this.panel13.Controls.Add(this.lblSlctBookName);
+            this.panel13.Controls.Add(this.label20);
+            this.panel13.Controls.Add(this.dateReturnOrder);
+            this.panel13.Controls.Add(this.ntxtCountOrder);
+            this.panel13.Controls.Add(this.rBtnRentOrder);
+            this.panel13.Controls.Add(this.rBtnSaleOrder);
+            this.panel13.Controls.Add(this.lblBookPrice);
+            this.panel13.Controls.Add(this.lblReturnDate);
             this.panel13.Controls.Add(this.label23);
             this.panel13.Controls.Add(this.label24);
             this.panel13.Controls.Add(this.label22);
-            this.panel13.Controls.Add(this.label20);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(415, 0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(299, 255);
             this.panel13.TabIndex = 3;
             // 
-            // dateReturnCrtOrder
+            // lblSlctBookName
             // 
-            this.dateReturnCrtOrder.Location = new System.Drawing.Point(113, 160);
-            this.dateReturnCrtOrder.Name = "dateReturnCrtOrder";
-            this.dateReturnCrtOrder.Size = new System.Drawing.Size(140, 20);
-            this.dateReturnCrtOrder.TabIndex = 13;
+            this.lblSlctBookName.AutoSize = true;
+            this.lblSlctBookName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSlctBookName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblSlctBookName.Location = new System.Drawing.Point(109, 68);
+            this.lblSlctBookName.Name = "lblSlctBookName";
+            this.lblSlctBookName.Size = new System.Drawing.Size(0, 18);
+            this.lblSlctBookName.TabIndex = 14;
             // 
-            // ntxtCountCrtOrder
+            // label20
             // 
-            this.ntxtCountCrtOrder.Location = new System.Drawing.Point(113, 127);
-            this.ntxtCountCrtOrder.Name = "ntxtCountCrtOrder";
-            this.ntxtCountCrtOrder.Size = new System.Drawing.Size(139, 20);
-            this.ntxtCountCrtOrder.TabIndex = 12;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label20.Location = new System.Drawing.Point(9, 67);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(90, 17);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Book name :";
             // 
-            // rBtnRentCrtOrder
+            // dateReturnOrder
             // 
-            this.rBtnRentCrtOrder.AutoSize = true;
-            this.rBtnRentCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rBtnRentCrtOrder.Location = new System.Drawing.Point(178, 67);
-            this.rBtnRentCrtOrder.Name = "rBtnRentCrtOrder";
-            this.rBtnRentCrtOrder.Size = new System.Drawing.Size(48, 17);
-            this.rBtnRentCrtOrder.TabIndex = 11;
-            this.rBtnRentCrtOrder.TabStop = true;
-            this.rBtnRentCrtOrder.Text = "Rent";
-            this.rBtnRentCrtOrder.UseVisualStyleBackColor = true;
+            this.dateReturnOrder.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.dateReturnOrder.Location = new System.Drawing.Point(113, 162);
+            this.dateReturnOrder.MinDate = new System.DateTime(2020, 2, 15, 0, 0, 0, 0);
+            this.dateReturnOrder.Name = "dateReturnOrder";
+            this.dateReturnOrder.Size = new System.Drawing.Size(140, 20);
+            this.dateReturnOrder.TabIndex = 13;
             // 
-            // rBtnSaleCrtOrder
+            // ntxtCountOrder
             // 
-            this.rBtnSaleCrtOrder.AutoSize = true;
-            this.rBtnSaleCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rBtnSaleCrtOrder.Location = new System.Drawing.Point(113, 67);
-            this.rBtnSaleCrtOrder.Name = "rBtnSaleCrtOrder";
-            this.rBtnSaleCrtOrder.Size = new System.Drawing.Size(46, 17);
-            this.rBtnSaleCrtOrder.TabIndex = 11;
-            this.rBtnSaleCrtOrder.TabStop = true;
-            this.rBtnSaleCrtOrder.Text = "Sale";
-            this.rBtnSaleCrtOrder.UseVisualStyleBackColor = true;
+            this.ntxtCountOrder.Location = new System.Drawing.Point(113, 127);
+            this.ntxtCountOrder.Name = "ntxtCountOrder";
+            this.ntxtCountOrder.Size = new System.Drawing.Size(139, 20);
+            this.ntxtCountOrder.TabIndex = 12;
             // 
-            // lblBookPriceCrtOrder
+            // rBtnRentOrder
             // 
-            this.lblBookPriceCrtOrder.AutoSize = true;
-            this.lblBookPriceCrtOrder.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBookPriceCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblBookPriceCrtOrder.Location = new System.Drawing.Point(109, 97);
-            this.lblBookPriceCrtOrder.Name = "lblBookPriceCrtOrder";
-            this.lblBookPriceCrtOrder.Size = new System.Drawing.Size(79, 18);
-            this.lblBookPriceCrtOrder.TabIndex = 5;
-            this.lblBookPriceCrtOrder.Text = "15.50  AZN";
+            this.rBtnRentOrder.AutoSize = true;
+            this.rBtnRentOrder.Checked = true;
+            this.rBtnRentOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rBtnRentOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.rBtnRentOrder.Location = new System.Drawing.Point(178, 36);
+            this.rBtnRentOrder.Name = "rBtnRentOrder";
+            this.rBtnRentOrder.Size = new System.Drawing.Size(48, 17);
+            this.rBtnRentOrder.TabIndex = 11;
+            this.rBtnRentOrder.TabStop = true;
+            this.rBtnRentOrder.Text = "Rent";
+            this.rBtnRentOrder.UseVisualStyleBackColor = true;
+            this.rBtnRentOrder.CheckedChanged += new System.EventHandler(this.RBtnRentOrder_CheckedChanged);
             // 
-            // lblBookNameCrtOrder
+            // rBtnSaleOrder
             // 
-            this.lblBookNameCrtOrder.AutoSize = true;
-            this.lblBookNameCrtOrder.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblBookNameCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblBookNameCrtOrder.Location = new System.Drawing.Point(109, 36);
-            this.lblBookNameCrtOrder.Name = "lblBookNameCrtOrder";
-            this.lblBookNameCrtOrder.Size = new System.Drawing.Size(136, 18);
-            this.lblBookNameCrtOrder.TabIndex = 5;
-            this.lblBookNameCrtOrder.Text = "Pervin Pashazade";
+            this.rBtnSaleOrder.AutoSize = true;
+            this.rBtnSaleOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rBtnSaleOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.rBtnSaleOrder.Location = new System.Drawing.Point(113, 36);
+            this.rBtnSaleOrder.Name = "rBtnSaleOrder";
+            this.rBtnSaleOrder.Size = new System.Drawing.Size(46, 17);
+            this.rBtnSaleOrder.TabIndex = 11;
+            this.rBtnSaleOrder.Text = "Sale";
+            this.rBtnSaleOrder.UseVisualStyleBackColor = true;
+            this.rBtnSaleOrder.CheckedChanged += new System.EventHandler(this.RBtnSaleOrder_CheckedChanged);
             // 
-            // label26
+            // lblBookPrice
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label26.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label26.Location = new System.Drawing.Point(6, 161);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(92, 17);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Return date :";
+            this.lblBookPrice.AutoSize = true;
+            this.lblBookPrice.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblBookPrice.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblBookPrice.Location = new System.Drawing.Point(109, 97);
+            this.lblBookPrice.Name = "lblBookPrice";
+            this.lblBookPrice.Size = new System.Drawing.Size(0, 18);
+            this.lblBookPrice.TabIndex = 5;
+            // 
+            // lblReturnDate
+            // 
+            this.lblReturnDate.AutoSize = true;
+            this.lblReturnDate.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblReturnDate.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblReturnDate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblReturnDate.Location = new System.Drawing.Point(6, 163);
+            this.lblReturnDate.Name = "lblReturnDate";
+            this.lblReturnDate.Size = new System.Drawing.Size(92, 17);
+            this.lblReturnDate.TabIndex = 10;
+            this.lblReturnDate.Text = "Return date :";
             // 
             // label23
             // 
@@ -421,33 +437,22 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label22.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label22.Location = new System.Drawing.Point(14, 66);
+            this.label22.Location = new System.Drawing.Point(14, 35);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(85, 17);
             this.label22.TabIndex = 10;
             this.label22.Text = "Order type :";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label20.Location = new System.Drawing.Point(9, 35);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(90, 17);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "Book name :";
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.lblCustomerPhone);
             this.panel10.Controls.Add(this.lblCustomerEmail);
             this.panel10.Controls.Add(this.lblCustomerId);
-            this.panel10.Controls.Add(this.lblCustomerCrtOrder);
-            this.panel10.Controls.Add(this.lblSellerCrtOrder);
-            this.panel10.Controls.Add(this.label13);
-            this.panel10.Controls.Add(this.label11);
-            this.panel10.Controls.Add(this.label9);
+            this.panel10.Controls.Add(this.lblCustomer);
+            this.panel10.Controls.Add(this.lblSeller);
+            this.panel10.Controls.Add(this.lblCustPhone);
+            this.panel10.Controls.Add(this.lblCustEmail);
+            this.panel10.Controls.Add(this.label45);
             this.panel10.Controls.Add(this.label7);
             this.panel10.Controls.Add(this.label2);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
@@ -463,9 +468,8 @@
             this.lblCustomerPhone.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblCustomerPhone.Location = new System.Drawing.Point(163, 160);
             this.lblCustomerPhone.Name = "lblCustomerPhone";
-            this.lblCustomerPhone.Size = new System.Drawing.Size(113, 18);
+            this.lblCustomerPhone.Size = new System.Drawing.Size(0, 18);
             this.lblCustomerPhone.TabIndex = 1;
-            this.lblCustomerPhone.Text = "+994519171756";
             // 
             // lblCustomerEmail
             // 
@@ -474,9 +478,8 @@
             this.lblCustomerEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblCustomerEmail.Location = new System.Drawing.Point(163, 129);
             this.lblCustomerEmail.Name = "lblCustomerEmail";
-            this.lblCustomerEmail.Size = new System.Drawing.Size(223, 18);
+            this.lblCustomerEmail.Size = new System.Drawing.Size(0, 18);
             this.lblCustomerEmail.TabIndex = 2;
-            this.lblCustomerEmail.Text = "pervinpashazade2@gmail.com";
             // 
             // lblCustomerId
             // 
@@ -485,64 +488,62 @@
             this.lblCustomerId.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblCustomerId.Location = new System.Drawing.Point(163, 98);
             this.lblCustomerId.Name = "lblCustomerId";
-            this.lblCustomerId.Size = new System.Drawing.Size(28, 18);
+            this.lblCustomerId.Size = new System.Drawing.Size(0, 18);
             this.lblCustomerId.TabIndex = 3;
-            this.lblCustomerId.Text = "# 1";
             // 
-            // lblCustomerCrtOrder
+            // lblCustomer
             // 
-            this.lblCustomerCrtOrder.AutoSize = true;
-            this.lblCustomerCrtOrder.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCustomerCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCustomerCrtOrder.Location = new System.Drawing.Point(163, 66);
-            this.lblCustomerCrtOrder.Name = "lblCustomerCrtOrder";
-            this.lblCustomerCrtOrder.Size = new System.Drawing.Size(123, 18);
-            this.lblCustomerCrtOrder.TabIndex = 4;
-            this.lblCustomerCrtOrder.Text = "Reshad Nagiyev";
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCustomer.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCustomer.Location = new System.Drawing.Point(163, 66);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(0, 18);
+            this.lblCustomer.TabIndex = 4;
             // 
-            // lblSellerCrtOrder
+            // lblSeller
             // 
-            this.lblSellerCrtOrder.AutoSize = true;
-            this.lblSellerCrtOrder.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSellerCrtOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblSellerCrtOrder.Location = new System.Drawing.Point(163, 35);
-            this.lblSellerCrtOrder.Name = "lblSellerCrtOrder";
-            this.lblSellerCrtOrder.Size = new System.Drawing.Size(136, 18);
-            this.lblSellerCrtOrder.TabIndex = 5;
-            this.lblSellerCrtOrder.Text = "Pervin Pashazade";
+            this.lblSeller.AutoSize = true;
+            this.lblSeller.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSeller.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblSeller.Location = new System.Drawing.Point(163, 35);
+            this.lblSeller.Name = "lblSeller";
+            this.lblSeller.Size = new System.Drawing.Size(127, 17);
+            this.lblSeller.TabIndex = 5;
+            this.lblSeller.Text = "Pervin Pashazade";
             // 
-            // label13
+            // lblCustPhone
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label13.Location = new System.Drawing.Point(37, 159);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(125, 17);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Customer phone :";
+            this.lblCustPhone.AutoSize = true;
+            this.lblCustPhone.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCustPhone.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCustPhone.Location = new System.Drawing.Point(37, 159);
+            this.lblCustPhone.Name = "lblCustPhone";
+            this.lblCustPhone.Size = new System.Drawing.Size(125, 17);
+            this.lblCustPhone.TabIndex = 6;
+            this.lblCustPhone.Text = "Customer phone :";
             // 
-            // label11
+            // lblCustEmail
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label11.Location = new System.Drawing.Point(37, 128);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 17);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Customer email :";
+            this.lblCustEmail.AutoSize = true;
+            this.lblCustEmail.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCustEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCustEmail.Location = new System.Drawing.Point(37, 128);
+            this.lblCustEmail.Name = "lblCustEmail";
+            this.lblCustEmail.Size = new System.Drawing.Size(120, 17);
+            this.lblCustEmail.TabIndex = 7;
+            this.lblCustEmail.Text = "Customer email :";
             // 
-            // label9
+            // label45
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(37, 97);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Customer ID :";
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label45.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label45.Location = new System.Drawing.Point(37, 97);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(99, 17);
+            this.label45.TabIndex = 8;
+            this.label45.Text = "Customer ID :";
             // 
             // label7
             // 
@@ -683,7 +684,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel8.Controls.Add(this.dgvBooksCrtOrder);
+            this.panel8.Controls.Add(this.dgvBooks);
             this.panel8.Controls.Add(this.panel11);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 485);
@@ -691,25 +692,26 @@
             this.panel8.Size = new System.Drawing.Size(413, 136);
             this.panel8.TabIndex = 5;
             // 
-            // dgvBooksCrtOrder
+            // dgvBooks
             // 
-            this.dgvBooksCrtOrder.AllowUserToAddRows = false;
-            this.dgvBooksCrtOrder.AllowUserToDeleteRows = false;
-            this.dgvBooksCrtOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBooksCrtOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBooksCrtOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBooks.AllowUserToAddRows = false;
+            this.dgvBooks.AllowUserToDeleteRows = false;
+            this.dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.Column6});
-            this.dgvBooksCrtOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBooksCrtOrder.Location = new System.Drawing.Point(0, 35);
-            this.dgvBooksCrtOrder.Name = "dgvBooksCrtOrder";
-            this.dgvBooksCrtOrder.ReadOnly = true;
-            this.dgvBooksCrtOrder.Size = new System.Drawing.Size(413, 101);
-            this.dgvBooksCrtOrder.TabIndex = 3;
+            this.dgvBooks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBooks.Location = new System.Drawing.Point(0, 35);
+            this.dgvBooks.Name = "dgvBooks";
+            this.dgvBooks.ReadOnly = true;
+            this.dgvBooks.Size = new System.Drawing.Size(413, 101);
+            this.dgvBooks.TabIndex = 3;
+            this.dgvBooks.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBooks_RowHeaderMouseDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -830,7 +832,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel7.Controls.Add(this.dgvCustomersCrtOrder);
+            this.panel7.Controls.Add(this.dgvCustomers);
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 255);
@@ -838,24 +840,25 @@
             this.panel7.Size = new System.Drawing.Size(413, 230);
             this.panel7.TabIndex = 4;
             // 
-            // dgvCustomersCrtOrder
+            // dgvCustomers
             // 
-            this.dgvCustomersCrtOrder.AllowUserToAddRows = false;
-            this.dgvCustomersCrtOrder.AllowUserToDeleteRows = false;
-            this.dgvCustomersCrtOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCustomersCrtOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomersCrtOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCustomers.AllowUserToAddRows = false;
+            this.dgvCustomers.AllowUserToDeleteRows = false;
+            this.dgvCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvCustomersCrtOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCustomersCrtOrder.Location = new System.Drawing.Point(0, 35);
-            this.dgvCustomersCrtOrder.Name = "dgvCustomersCrtOrder";
-            this.dgvCustomersCrtOrder.ReadOnly = true;
-            this.dgvCustomersCrtOrder.Size = new System.Drawing.Size(413, 195);
-            this.dgvCustomersCrtOrder.TabIndex = 2;
+            this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCustomers.Location = new System.Drawing.Point(0, 35);
+            this.dgvCustomers.Name = "dgvCustomers";
+            this.dgvCustomers.ReadOnly = true;
+            this.dgvCustomers.Size = new System.Drawing.Size(413, 195);
+            this.dgvCustomers.TabIndex = 2;
+            this.dgvCustomers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCustomersCrtOrder_RowHeaderMouseDoubleClick);
             // 
             // Column1
             // 
@@ -1065,6 +1068,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library App - Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.AddOrderForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -1075,7 +1079,7 @@
             this.pnlCrtOrderHeader.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ntxtCountCrtOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntxtCountOrder)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1084,14 +1088,14 @@
             this.panel15.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBooksCrtOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icnSearchBookCrtOrder)).EndInit();
             this.panelCreateOrder.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomersCrtOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icnClearTxtSearchCust)).EndInit();
@@ -1122,13 +1126,11 @@
         private System.Windows.Forms.Label lblCustomerPhone;
         private System.Windows.Forms.Label lblCustomerEmail;
         private System.Windows.Forms.Label lblCustomerId;
-        private System.Windows.Forms.Label lblCustomerCrtOrder;
-        private System.Windows.Forms.Label lblSellerCrtOrder;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblCustPhone;
+        private System.Windows.Forms.Label lblCustEmail;
+        private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel11;
@@ -1151,25 +1153,23 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button btnAddToCart;
-        private System.Windows.Forms.RadioButton rBtnRentCrtOrder;
-        private System.Windows.Forms.RadioButton rBtnSaleCrtOrder;
-        private System.Windows.Forms.Label lblBookNameCrtOrder;
+        private System.Windows.Forms.RadioButton rBtnRentOrder;
+        private System.Windows.Forms.RadioButton rBtnSaleOrder;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataGridView dgvBooksCrtOrder;
+        private System.Windows.Forms.DataGridView dgvBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridView dgvCustomersCrtOrder;
+        private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.NumericUpDown ntxtCountCrtOrder;
+        private System.Windows.Forms.NumericUpDown ntxtCountOrder;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox icnClearTxtSearchCust;
@@ -1177,10 +1177,10 @@
         private System.Windows.Forms.ComboBox cmbSrchFilterCustomer;
         private System.Windows.Forms.PictureBox icnSearchCustCrtOrder;
         private System.Windows.Forms.TextBox txtSearchCustCrtOrder;
-        private System.Windows.Forms.Label lblBookPriceCrtOrder;
+        private System.Windows.Forms.Label lblBookPrice;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DateTimePicker dateReturnCrtOrder;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DateTimePicker dateReturnOrder;
+        private System.Windows.Forms.Label lblReturnDate;
 
         public void test()
         {
@@ -1195,5 +1195,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Label lblSeller;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSlctBookName;
+        private System.Windows.Forms.Label label20;
     }
 }
