@@ -352,6 +352,7 @@
             this.dateReturnOrder.Name = "dateReturnOrder";
             this.dateReturnOrder.Size = new System.Drawing.Size(140, 20);
             this.dateReturnOrder.TabIndex = 13;
+            this.dateReturnOrder.Visible = false;
             // 
             // ntxtCountOrder
             // 
@@ -359,6 +360,7 @@
             this.ntxtCountOrder.Name = "ntxtCountOrder";
             this.ntxtCountOrder.Size = new System.Drawing.Size(139, 20);
             this.ntxtCountOrder.TabIndex = 12;
+            this.ntxtCountOrder.Visible = false;
             // 
             // rBtnRentOrder
             // 
@@ -373,6 +375,7 @@
             this.rBtnRentOrder.TabStop = true;
             this.rBtnRentOrder.Text = "Rent";
             this.rBtnRentOrder.UseVisualStyleBackColor = true;
+            this.rBtnRentOrder.Visible = false;
             this.rBtnRentOrder.CheckedChanged += new System.EventHandler(this.RBtnRentOrder_CheckedChanged);
             // 
             // rBtnSaleOrder
@@ -386,6 +389,7 @@
             this.rBtnSaleOrder.TabIndex = 11;
             this.rBtnSaleOrder.Text = "Sale";
             this.rBtnSaleOrder.UseVisualStyleBackColor = true;
+            this.rBtnSaleOrder.Visible = false;
             this.rBtnSaleOrder.CheckedChanged += new System.EventHandler(this.RBtnSaleOrder_CheckedChanged);
             // 
             // lblBookPrice
@@ -511,6 +515,7 @@
             this.lblSeller.Size = new System.Drawing.Size(127, 17);
             this.lblSeller.TabIndex = 5;
             this.lblSeller.Text = "Pervin Pashazade";
+            this.lblSeller.Visible = false;
             // 
             // lblCustPhone
             // 

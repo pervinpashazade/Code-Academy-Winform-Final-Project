@@ -119,15 +119,71 @@ namespace LibraryFinalTask.Forms
             }
             //validations end
 
+            if (_currentOrder == null)
+            {
+                _currentOrder = new Order();
 
-            Order order = new Order();
+                _currentOrder.SellerId = 1; //static
+                _currentOrder.CustomerId = _selectedCustomer.Id;
+                _currentOrder.TotalPrice = 0;
+                _currentOrder.CreatedAt = DateTime.Now;
 
-            order.SellerId = 1; //static
-            order.CustomerId = _selectedCustomer.Id;
-            order.TotalPrice = 0;
-            order.CreatedAt = DateTime.Now;
+                _db.Orders.Add(_currentOrder);
+                _db.SaveChanges();
+            }
+            
+            if(_currentOrder != null)
+            {
+                OrderItem orderItem = new OrderItem();
+                orderItem.OrderId = _currentOrder.Id;
+                orderItem.BookId = _selectedBook.Id;
+                orderItem.IsTypeSale = rBtnSaleOrder.Checked == true ? true : false;
 
-            List<OrderItem> orderItems = new List<OrderItem>();
+                decimal priceItem = 0;
+
+                if (rBtnSaleOrder.Checked == true)
+                {
+                    orderItem.Price = _selectedBook.PriceSale;
+                    priceItem = _selectedBook.PriceSale;
+                }
+                if (rBtnRentOrder.Checked == true)
+                {
+                    orderItem.Price = _selectedBook.PriceRent;
+                    priceItem = _selectedBook.PriceRent;
+                }
+
+                orderItem.Count = Convert.ToInt32(ntxtCountOrder.Value);
+                orderItem.Amount = Convert.ToInt32(priceItem * ntxtCountOrder.Value);
+
+                orderItem.OrderDate = DateTime.Now;
+                orderItem.ReturnDate = dateReturnOrder.Value;
+
+                _currentOrder.TotalPrice += Convert.ToInt32(priceItem * ntxtCountOrder.Value);
+
+                _db.OrderItems.Add(orderItem);
+                _db.SaveChanges();
+
+                MessageBox.Show("Book successfully added to shopping cart !", "New Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dgvCustomers.Enabled = false;
+                _selectedBook = null;
+
+                //clear old datas for new orderItem
+                #region ClearOldDatas
+                rBtnSaleOrder.Checked = false;
+                rBtnSaleOrder.Hide();
+                rBtnRentOrder.Checked = true;
+                rBtnRentOrder.Hide();
+                lblSlctBookName.Text = "";
+                lblBookPrice.Text = "";
+                lblBookPrice.Hide();
+                ntxtCountOrder.Hide();
+                dateReturnOrder.Hide();
+                #endregion
+
+                //fill Chech out list
+                //FillCheckOutItems();
+            }
 
         }
 
@@ -178,6 +234,9 @@ namespace LibraryFinalTask.Forms
                 lblCustomerId.Text = "# " + _selectedCustomer.Id;
                 lblCustomerEmail.Text = _selectedCustomer.Email;
                 lblCustomerPhone.Text = _selectedCustomer.Phone;
+
+                lblSeller.Show();
+
             }
         }
 
@@ -193,6 +252,13 @@ namespace LibraryFinalTask.Forms
                 {
                     lblSlctBookName.Text = _selectedBook.Name;
                     lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
+
+                    rBtnSaleOrder.Show();
+                    rBtnRentOrder.Show();
+                    lblSlctBookName.Show();
+                    lblBookPrice.Show();
+                    ntxtCountOrder.Show();
+                    dateReturnOrder.Show();
                 }
             }
 
