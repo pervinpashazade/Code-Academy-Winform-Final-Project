@@ -20,8 +20,55 @@ namespace LibraryFinalTask.Forms
         private void BtnBooks_Click(object sender, EventArgs e)
         {
             BooksForm booksForm = new BooksForm();
-            this.Hide();
             booksForm.ShowDialog();
+        }
+
+        private void BtnCustomers_Click(object sender, EventArgs e)
+        {
+            CustomersForm customers = new CustomersForm();
+            customers.ShowDialog();
+        }
+
+        private void BtnGenres_Click(object sender, EventArgs e)
+        {
+            AddBookGenreForm genreForm = new AddBookGenreForm();
+            genreForm.ShowDialog();
+        }
+
+        private void BtnAddOrder_Click(object sender, EventArgs e)
+        {
+            AddOrderForm orderForm = new AddOrderForm();
+            orderForm.ShowDialog();
+        }
+
+        private void BtnAuthors_Click(object sender, EventArgs e)
+        {
+            AddAuthorForm authorForm = new AddAuthorForm();
+            authorForm.ShowDialog();
+        }
+
+        private void BtnReturns_Click(object sender, EventArgs e)
+        {
+            ViewReturnsForm returnsForm = new ViewReturnsForm();
+            returnsForm.ShowDialog();
+        }
+
+        private void BtnEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeesForm employees = new EmployeesForm();
+            employees.ShowDialog();
+        }
+
+        private void BtnPositions_Click(object sender, EventArgs e)
+        {
+            AddPositionForm positionForm = new AddPositionForm();
+            positionForm.ShowDialog();
+        }
+
+        private void BtnLanguages_Click(object sender, EventArgs e)
+        {
+            AddLanguageForm languageForm = new AddLanguageForm();
+            languageForm.ShowDialog();
         }
     }
 }

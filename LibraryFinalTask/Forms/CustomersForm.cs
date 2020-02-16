@@ -321,5 +321,10 @@ namespace LibraryFinalTask.Forms
 
             btnCreate.Enabled = false;
         }
+
+        private void IconGoBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

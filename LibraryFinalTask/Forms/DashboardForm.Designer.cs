@@ -66,12 +66,13 @@
             this.btnGenres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenres.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnGenres.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGenres.Location = new System.Drawing.Point(219, 228);
+            this.btnGenres.Location = new System.Drawing.Point(217, 225);
             this.btnGenres.Name = "btnGenres";
             this.btnGenres.Size = new System.Drawing.Size(210, 140);
             this.btnGenres.TabIndex = 1;
             this.btnGenres.Text = "Genres";
             this.btnGenres.UseVisualStyleBackColor = false;
+            this.btnGenres.Click += new System.EventHandler(this.BtnGenres_Click);
             // 
             // btnAddOrder
             // 
@@ -81,12 +82,13 @@
             this.btnAddOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAddOrder.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddOrder.Location = new System.Drawing.Point(435, 228);
+            this.btnAddOrder.Location = new System.Drawing.Point(433, 225);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Size = new System.Drawing.Size(301, 140);
             this.btnAddOrder.TabIndex = 1;
             this.btnAddOrder.Text = "New Order";
             this.btnAddOrder.UseVisualStyleBackColor = false;
+            this.btnAddOrder.Click += new System.EventHandler(this.BtnAddOrder_Click);
             // 
             // btnLanguages
             // 
@@ -96,12 +98,13 @@
             this.btnLanguages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLanguages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnLanguages.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLanguages.Location = new System.Drawing.Point(797, 374);
+            this.btnLanguages.Location = new System.Drawing.Point(795, 371);
             this.btnLanguages.Name = "btnLanguages";
             this.btnLanguages.Size = new System.Drawing.Size(155, 140);
             this.btnLanguages.TabIndex = 1;
             this.btnLanguages.Text = "Languages";
             this.btnLanguages.UseVisualStyleBackColor = false;
+            this.btnLanguages.Click += new System.EventHandler(this.BtnLanguages_Click);
             // 
             // btnBooks
             // 
@@ -111,7 +114,7 @@
             this.btnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnBooks.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBooks.Location = new System.Drawing.Point(219, 82);
+            this.btnBooks.Location = new System.Drawing.Point(217, 79);
             this.btnBooks.Name = "btnBooks";
             this.btnBooks.Size = new System.Drawing.Size(257, 140);
             this.btnBooks.TabIndex = 1;
@@ -127,12 +130,13 @@
             this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnCustomers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCustomers.Location = new System.Drawing.Point(482, 82);
+            this.btnCustomers.Location = new System.Drawing.Point(480, 79);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(204, 140);
             this.btnCustomers.TabIndex = 1;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // btnReports
             // 
@@ -142,7 +146,7 @@
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnReports.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReports.Location = new System.Drawing.Point(692, 82);
+            this.btnReports.Location = new System.Drawing.Point(690, 79);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(260, 140);
             this.btnReports.TabIndex = 1;
@@ -157,12 +161,13 @@
             this.btnAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAuthors.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAuthors.Location = new System.Drawing.Point(220, 374);
+            this.btnAuthors.Location = new System.Drawing.Point(218, 371);
             this.btnAuthors.Name = "btnAuthors";
             this.btnAuthors.Size = new System.Drawing.Size(155, 140);
             this.btnAuthors.TabIndex = 1;
             this.btnAuthors.Text = "Authors";
             this.btnAuthors.UseVisualStyleBackColor = false;
+            this.btnAuthors.Click += new System.EventHandler(this.BtnAuthors_Click);
             // 
             // btnReturns
             // 
@@ -172,12 +177,13 @@
             this.btnReturns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnReturns.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReturns.Location = new System.Drawing.Point(381, 374);
+            this.btnReturns.Location = new System.Drawing.Point(379, 371);
             this.btnReturns.Name = "btnReturns";
             this.btnReturns.Size = new System.Drawing.Size(218, 140);
             this.btnReturns.TabIndex = 1;
             this.btnReturns.Text = "View Returns";
             this.btnReturns.UseVisualStyleBackColor = false;
+            this.btnReturns.Click += new System.EventHandler(this.BtnReturns_Click);
             // 
             // btnEmployees
             // 
@@ -187,12 +193,13 @@
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnEmployees.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEmployees.Location = new System.Drawing.Point(605, 374);
+            this.btnEmployees.Location = new System.Drawing.Point(603, 371);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(186, 140);
             this.btnEmployees.TabIndex = 1;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = false;
+            this.btnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
             // 
             // panel2
             // 
@@ -260,12 +267,13 @@
             this.btnPositions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPositions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnPositions.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPositions.Location = new System.Drawing.Point(742, 228);
+            this.btnPositions.Location = new System.Drawing.Point(740, 225);
             this.btnPositions.Name = "btnPositions";
             this.btnPositions.Size = new System.Drawing.Size(210, 140);
             this.btnPositions.TabIndex = 1;
             this.btnPositions.Text = "Positions";
             this.btnPositions.UseVisualStyleBackColor = false;
+            this.btnPositions.Click += new System.EventHandler(this.BtnPositions_Click);
             // 
             // DashboardForm
             // 
@@ -286,7 +294,8 @@
             this.Controls.Add(this.btnGenres);
             this.Controls.Add(this.panel1);
             this.Name = "DashboardForm";
-            this.Text = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Welcome, to Library Application!";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

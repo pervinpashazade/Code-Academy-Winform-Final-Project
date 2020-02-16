@@ -231,6 +231,7 @@
             this.iconGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconGoBack.TabIndex = 2;
             this.iconGoBack.TabStop = false;
+            this.iconGoBack.Click += new System.EventHandler(this.IconGoBack_Click);
             // 
             // label1
             // 
@@ -550,7 +551,9 @@
             this.Controls.Add(this.dgvCustomers);
             this.Controls.Add(this.pnlInputs);
             this.Controls.Add(this.pnlHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CustomersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomersForm";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
