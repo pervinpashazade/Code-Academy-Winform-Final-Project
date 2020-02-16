@@ -485,6 +485,9 @@ namespace LibraryFinalTask.Forms
             btnCreate.Enabled = false;
         }
 
+        private void BooksForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
 
+        }
     }
 }

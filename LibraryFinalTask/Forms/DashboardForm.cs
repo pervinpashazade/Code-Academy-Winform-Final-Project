@@ -17,9 +17,11 @@ namespace LibraryFinalTask.Forms
             InitializeComponent();
         }
 
-        private void BtnAddToCart_Click(object sender, EventArgs e)
+        private void BtnBooks_Click(object sender, EventArgs e)
         {
-            //panelCreateOrder.Hide();
+            BooksForm booksForm = new BooksForm();
+            this.Hide();
+            booksForm.ShowDialog();
         }
     }
 }
