@@ -70,5 +70,11 @@ namespace LibraryFinalTask.Forms
             AddLanguageForm languageForm = new AddLanguageForm();
             languageForm.ShowDialog();
         }
+
+        private void BtnReports_Click(object sender, EventArgs e)
+        {
+            ReportsForm reports = new ReportsForm();
+            reports.ShowDialog();
+        }
     }
 }

@@ -21,7 +21,33 @@ namespace LibraryFinalTask.Forms
             _db = new LibraryDbContext();
 
             InitializeComponent();
+
+            FillReturnsToday();
         }
+
+        #region fillMethods
+
+        public void FillReturnsToday()
+        {
+            dgvToday.Rows.Clear();
+
+            List<OrderItem> orderItems = _db.OrderItems.Include("Customer")
+                                                       .Include("Order")
+                                                       .Where(o => o.ReturnDate == DateTime.Now)
+                                                       .ToList();
+
+
+
+            foreach (var item in orderItems)
+            {
+                dgvToday.Rows.Add(item.Id, item.Order.CustomerId, item.Order.Customer.Name,
+                                  item.Order.Customer.Surname,
+                                  item.ReturnDate,
+                                  item.Order.Customer.Email, item.Order.Customer.Phone);
+            }
+        }
+
+        #endregion
 
         private void BtnTomorrow_Click(object sender, EventArgs e)
         {
@@ -37,6 +63,7 @@ namespace LibraryFinalTask.Forms
 
         private void BtnToday_Click(object sender, EventArgs e)
         {
+
             //toggle effect start
             #region clickToggleEffect
             btnToday.ForeColor = Color.FromArgb(133, 240, 240);
@@ -50,19 +77,7 @@ namespace LibraryFinalTask.Forms
             #endregion
             //toggle effect start
 
-            dgvToday.Rows.Clear();
 
-            List<OrderItem> orderItems = _db.OrderItems.Where(o=>o.ReturnDate == DateTime.Now ).ToList();
-
-
-
-            //foreach (var item in orderItems)
-            //{
-            //    dgvToday.Rows.Add(item.Id, item.Order.CustomerId, item.Order.Customer.Name,
-            //                      item.Order.Customer.Surname,
-            //                      item.Order.
-            //                      item.Order.Customer.Email, item.Order.Customer.Phone);
-            //}
         }
 
         private void BtnDelayed_Click(object sender, EventArgs e)

@@ -152,6 +152,7 @@
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.BtnReports_Click);
             // 
             // btnAuthors
             // 

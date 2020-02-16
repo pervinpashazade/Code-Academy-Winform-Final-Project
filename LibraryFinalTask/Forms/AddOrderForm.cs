@@ -502,5 +502,28 @@ namespace LibraryFinalTask.Forms
         {
             this.Close();
         }
+
+        private void AddOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dgvCheckOutItems.Rows.Count > 0 || _currentOrder != null )
+            {
+                DialogResult d = MessageBox.Show("Are you sure to exit without completing the current order ?", "Close Book Form", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (d == DialogResult.Yes)
+                {
+                    int orderId = _currentOrder.Id;
+
+                    _db.OrderItems.RemoveRange(_db.OrderItems.Where(o => o.OrderId == orderId));
+                    _db.Orders.Remove(_currentOrder);
+                    _db.SaveChanges();
+
+                    FillCheckOutItems();
+                    ResetForm();
+
+                    return;
+
+                }
+            }
+        }
     }
 }

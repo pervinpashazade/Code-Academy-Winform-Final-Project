@@ -1117,6 +1117,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library App - Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddOrderForm_FormClosing);
             this.Load += new System.EventHandler(this.AddOrderForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
