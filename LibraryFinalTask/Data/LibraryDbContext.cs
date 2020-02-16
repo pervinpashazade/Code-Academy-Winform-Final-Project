@@ -24,5 +24,7 @@ namespace LibraryFinalTask.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Position> Positions { get; set; }
+
+
     }
 }
