@@ -169,6 +169,7 @@ namespace LibraryFinalTask.Forms
                 _currentOrder.CustomerId = _selectedCustomer.Id;
                 _currentOrder.TotalPrice = 0;
                 _currentOrder.CreatedAt = DateTime.Now;
+                _currentOrder.Status = false; //default: False, if checkout:true
 
                 _db.Orders.Add(_currentOrder);
                 _db.SaveChanges();
@@ -453,6 +454,48 @@ namespace LibraryFinalTask.Forms
 
                 _selectedItem = null;
             }
+        }
+
+        private void BtnCreateCrtOrder_Click(object sender, EventArgs e)
+        {
+            if (dgvCheckOutItems.Rows.Count < 1)
+            {
+                DialogResult d = MessageBox.Show("Order list is empty! Cancel the request ?", "Cancel Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (d == DialogResult.OK)
+                {
+                    if (_currentOrder != null)
+                    {
+                        int orderId = _currentOrder.Id;
+
+                        _db.OrderItems.RemoveRange(_db.OrderItems.Where(o => o.OrderId == orderId));
+                        _db.Orders.Remove(_currentOrder);
+                        _db.SaveChanges();
+
+                        FillCheckOutItems();
+                        ResetForm();
+
+                        MessageBox.Show("Request has been aborted!", "Warning !", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        return;
+                    }
+
+                }
+            }
+
+            DialogResult dialog = MessageBox.Show("Do you want to complete the shopping ?", "Confirm Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                _currentOrder.Status = true;
+
+                MessageBox.Show("Request has been successfully completed", "Check out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ResetForm();
+                dgvCheckOutItems.Rows.Clear();
+            };
+
+            
         }
     }
 }

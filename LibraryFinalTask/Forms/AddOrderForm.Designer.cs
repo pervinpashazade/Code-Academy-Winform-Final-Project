@@ -76,6 +76,13 @@
             this.btnCreateCrtOrder = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
             this.icnClearTxtSearchBook = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -98,14 +105,6 @@
             this.txtSearchCustCrtOrder = new System.Windows.Forms.TextBox();
             this.pnlCrtOrderRight = new System.Windows.Forms.Panel();
             this.dgvCheckOutItems = new System.Windows.Forms.DataGridView();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,9 +112,10 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iconDeleteItem = new System.Windows.Forms.PictureBox();
-            this.lblSelectedItem = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblSelectedItem = new System.Windows.Forms.Label();
+            this.iconDeleteItem = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -693,6 +693,7 @@
             this.btnCreateCrtOrder.Text = "Check out";
             this.btnCreateCrtOrder.UseVisualStyleBackColor = false;
             this.btnCreateCrtOrder.Visible = false;
+            this.btnCreateCrtOrder.Click += new System.EventHandler(this.BtnCreateCrtOrder_Click);
             // 
             // panel8
             // 
@@ -726,6 +727,49 @@
             this.dgvBooks.Size = new System.Drawing.Size(413, 101);
             this.dgvBooks.TabIndex = 3;
             this.dgvBooks.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBooks_RowHeaderMouseDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Language";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Sale Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Rent Price";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Count";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // panel11
             // 
@@ -970,61 +1014,6 @@
             this.dgvCheckOutItems.TabIndex = 3;
             this.dgvCheckOutItems.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCheckOutItems_RowHeaderMouseDoubleClick);
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
-            this.panel12.Controls.Add(this.label6);
-            this.panel12.Controls.Add(this.lblSelectedItem);
-            this.panel12.Controls.Add(this.iconDeleteItem);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(501, 35);
-            this.panel12.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Language";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Sale Price";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Rent Price";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Count";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "Id";
@@ -1068,18 +1057,28 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // iconDeleteItem
+            // panel12
             // 
-            this.iconDeleteItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("iconDeleteItem.Image")));
-            this.iconDeleteItem.Location = new System.Drawing.Point(12, 7);
-            this.iconDeleteItem.Name = "iconDeleteItem";
-            this.iconDeleteItem.Size = new System.Drawing.Size(19, 20);
-            this.iconDeleteItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconDeleteItem.TabIndex = 50;
-            this.iconDeleteItem.TabStop = false;
-            this.iconDeleteItem.Visible = false;
-            this.iconDeleteItem.Click += new System.EventHandler(this.IconDeleteItem_Click);
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(49)))));
+            this.panel12.Controls.Add(this.label6);
+            this.panel12.Controls.Add(this.lblSelectedItem);
+            this.panel12.Controls.Add(this.iconDeleteItem);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(501, 35);
+            this.panel12.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(37, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 15);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Order List :";
             // 
             // lblSelectedItem
             // 
@@ -1092,16 +1091,18 @@
             this.lblSelectedItem.TabIndex = 51;
             this.lblSelectedItem.Visible = false;
             // 
-            // label6
+            // iconDeleteItem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(37, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 15);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "Order List :";
+            this.iconDeleteItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("iconDeleteItem.Image")));
+            this.iconDeleteItem.Location = new System.Drawing.Point(12, 7);
+            this.iconDeleteItem.Name = "iconDeleteItem";
+            this.iconDeleteItem.Size = new System.Drawing.Size(19, 20);
+            this.iconDeleteItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconDeleteItem.TabIndex = 50;
+            this.iconDeleteItem.TabStop = false;
+            this.iconDeleteItem.Visible = false;
+            this.iconDeleteItem.Click += new System.EventHandler(this.IconDeleteItem_Click);
             // 
             // AddOrderForm
             // 

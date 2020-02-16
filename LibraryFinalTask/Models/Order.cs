@@ -16,6 +16,7 @@ namespace LibraryFinalTask.Models
 
         [Column(TypeName = "date")]
         public DateTime CreatedAt { get; set; }
+        public bool Status { get; set; }
 
         public Employee Seller { get; set; }
         public Customer Customer { get; set; }
