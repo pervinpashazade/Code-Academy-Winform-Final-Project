@@ -76,5 +76,15 @@ namespace LibraryFinalTask.Forms
             ReportsForm reports = new ReportsForm();
             reports.ShowDialog();
         }
+
+        private void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult d = MessageBox.Show("Are you sure close Library app ?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (d !=DialogResult.No)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

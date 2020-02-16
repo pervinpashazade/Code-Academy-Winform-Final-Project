@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryFinalTask.Data;
+using LibraryFinalTask.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,24 +15,18 @@ namespace LibraryFinalTask.Forms
 {
     public partial class LoginForm : Form
     {
+        private readonly LibraryDbContext _db;
         public LoginForm()
         {
+            _db = new LibraryDbContext();
+
             InitializeComponent();
         }
 
-        public string FillTermsAndConditions()
-        {
-            string content = "Lorem Ipsum is simply dummy text of the printing and typesetting" +
-                "industry. Lorem Ipsum has been the industry's standard dummy text ever since" +
-                "the 1500s, when an unknown printer took a galley of type and scrambled it to" +
-                "make a type specimen book. It has survived not only five centuries, but also" +
-                "the leap into electronic typesetting, remaining essentially unchanged. It was" +
-                "popularised in the 1960s with the release of Letraset sheets containing Lorem" +
-                "Ipsum passages, and more recently with desktop publishing software like Aldus" +
-                "PageMaker including versions of Lorem Ipsum." + " ";
 
-            return content;
-        }
+
+        //input effets start
+        #region inputEffects
 
         private void TxtPassLogin_Click(object sender, EventArgs e)
         {
@@ -42,7 +38,6 @@ namespace LibraryFinalTask.Forms
             txtEmailLogin.ForeColor = Color.WhiteSmoke;
             pnlEmailLogin.BackColor = Color.WhiteSmoke;
         }
-
         private void TxtEmailLogin_Click(object sender, EventArgs e)
         {
             txtEmailLogin.Clear();
@@ -53,17 +48,24 @@ namespace LibraryFinalTask.Forms
             pnlPassLogin.BackColor = Color.WhiteSmoke;
         }
 
+        #endregion
+        //input effets end
+
+        // exit icon
         private void IconExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //copyright :)
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ProcessStartInfo sInfo = new ProcessStartInfo("https://www.facebook.com/pervin.pashazade");
             Process.Start(sInfo);
         }
 
+
+        //Login process
         private void BtnLoginLoginF_Click(object sender, EventArgs e)
         {
             if (txtEmailLogin.Text == "Email" || string.IsNullOrEmpty(txtEmailLogin.Text))
@@ -80,16 +82,28 @@ namespace LibraryFinalTask.Forms
             {
                 lblErrorPass.Show();
                 pnlPassLogin.BackColor = Color.Red;
-
+                return;
             }
             else
             {
                 lblErrorPass.Hide();
             }
 
-            AddOrderForm addOrderForm = new AddOrderForm();
 
-            addOrderForm.ShowDialog();
+            Employee employee = _db.Employees.FirstOrDefault(x=>x.Email == txtEmailLogin.Text);
+
+            if (employee !=null && employee.Password == txtPassLogin.Text)
+            {
+                DashboardForm dashboard = new DashboardForm();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                DialogResult d = MessageBox.Show("Email or password not valid", "Oops, Error !", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+
         }
 
     }

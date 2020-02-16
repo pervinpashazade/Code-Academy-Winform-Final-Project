@@ -151,6 +151,10 @@
     <Compile Include="Migrations\202002152321226_OrderModelStatusAdded.designer.cs">
       <DependentUpon>202002152321226_OrderModelStatusAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002161636551_EmployeeModelPasswordAdded.cs" />
+    <Compile Include="Migrations\202002161636551_EmployeeModelPasswordAdded.designer.cs">
+      <DependentUpon>202002161636551_EmployeeModelPasswordAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002152321226_OrderModelStatusAdded.resx">
       <DependentUpon>202002152321226_OrderModelStatusAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002161636551_EmployeeModelPasswordAdded.resx">
+      <DependentUpon>202002161636551_EmployeeModelPasswordAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

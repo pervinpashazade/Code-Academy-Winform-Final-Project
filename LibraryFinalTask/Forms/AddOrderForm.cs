@@ -129,12 +129,16 @@ namespace LibraryFinalTask.Forms
         #endregion
 
 
+        //Ordering process
+        #region orderingProcess
+
+        //Create Order
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
             //validations start
             if (_selectedCustomer == null)
             {
-                DialogResult dialog = MessageBox.Show("Please, select customer!", "Oops, Error!", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                DialogResult dialog = MessageBox.Show("Please, select customer!", "Oops, Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (dialog == DialogResult.OK)
                 {
@@ -161,6 +165,7 @@ namespace LibraryFinalTask.Forms
             }
             //validations end
 
+            //create new order
             if (_currentOrder == null)
             {
                 _currentOrder = new Order();
@@ -174,8 +179,9 @@ namespace LibraryFinalTask.Forms
                 _db.Orders.Add(_currentOrder);
                 _db.SaveChanges();
             }
-            
-            if(_currentOrder != null)
+
+            //create order item
+            if (_currentOrder != null)
             {
                 OrderItem orderItem = new OrderItem();
                 orderItem.OrderId = _currentOrder.Id;
@@ -245,219 +251,10 @@ namespace LibraryFinalTask.Forms
 
         }
 
-        private void IcnSearchCustCrtOrder_Click(object sender, EventArgs e)
-        {
-            if (cmbSrchFilterCustomer.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please, select customer search filter!", "Oops, Warning!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtSearchCustCrtOrder.Text))
-            {
-                MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
-            }
-        }
-
-        private void IcnClearTxtSearchCust_Click(object sender, EventArgs e)
-        {
-            txtSearchCustCrtOrder.Clear();
-        }
-
-        private void IcnSearchBookCrtOrder_Click(object sender, EventArgs e)
-        {
-            if (cmbSrchFilterBooks.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please, select book search filter!", "Oops, Warning!");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(txtSearchBookCrtOrder.Text))
-            {
-                MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
-            }
-        }
-
-
-        //dgv customers row header double click
-        private void DgvCustomersCrtOrder_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (btnCancelCrtOrder.Visible == false)
-            {
-                btnCancelCrtOrder.Show();
-            }
-
-            int customerId = Convert.ToInt32(dgvCustomers.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            _selectedCustomer = _db.Customers.Find(customerId);
-
-            if (_selectedCustomer != null)
-            {
-                lblCustomer.Text = _selectedCustomer.Name + " " + _selectedCustomer.Surname;
-                lblCustomerId.Text = "# " + _selectedCustomer.Id;
-                lblCustomerEmail.Text = _selectedCustomer.Email;
-                lblCustomerPhone.Text = _selectedCustomer.Phone;
-
-                lblSeller.Show();
-
-            }
-        }
-
-        private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (btnCancelCrtOrder.Visible == false)
-            {
-                btnCancelCrtOrder.Show();
-            }
-
-            int bookId = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            _selectedBook = _db.Books.Find(bookId);
-
-            if (rBtnRentOrder.Checked == true)
-            {
-                if (_selectedBook != null)
-                {
-                    lblSlctBookName.Text = _selectedBook.Name;
-                    lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
-
-                    rBtnSaleOrder.Show();
-                    rBtnRentOrder.Show();
-                    lblSlctBookName.Show();
-                    lblBookPrice.Show();
-                    ntxtCountOrder.Show();
-                    dateReturnOrder.Show();
-                }
-            }
-
-            if (rBtnSaleOrder.Checked == true)
-            {
-                if (_selectedBook != null)
-                {
-                    lblSlctBookName.Text = _selectedBook.Name;
-                    lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
-                }
-            }
-
-        }
-
-
-        //radio button toggle datetimepicker start
-        private void RBtnSaleOrder_CheckedChanged(object sender, EventArgs e)
-        {
-            rBtnSaleOrder.ForeColor = Color.FromArgb(133, 240, 240);
-            rBtnRentOrder.ForeColor = Color.WhiteSmoke;
-            lblReturnDate.Hide();
-            dateReturnOrder.Hide();
-
-            if (_selectedBook != null)
-            {
-                lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
-            }
-        }
-
-        private void RBtnRentOrder_CheckedChanged(object sender, EventArgs e)
-        {
-            rBtnRentOrder.ForeColor = Color.FromArgb(133, 240, 240);
-            rBtnSaleOrder.ForeColor = Color.WhiteSmoke;
-
-            lblReturnDate.Show();
-            dateReturnOrder.Show();
-
-            if (_selectedBook != null)
-            {
-                lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
-            }
-
-        }
-        //radio button toggle datetimepicker end
-
-
-
-        private void AddOrderForm_Load(object sender, EventArgs e)
-        {
-            dateReturnOrder.MinDate = DateTime.Now;
-            dateReturnOrder.MaxDate = DateTime.Now.AddDays(15);
-        }
-
-        private void BtnCancelCrtOrder_Click(object sender, EventArgs e)
-        {
-            DialogResult dialog = MessageBox.Show("Are you sure to cancel the process ?", "Cancel Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-            if (dialog == DialogResult.OK)
-            {
-                if (_currentOrder != null)
-                {
-                    int orderId = _currentOrder.Id;
-
-                    _db.OrderItems.RemoveRange(_db.OrderItems.Where(o => o.OrderId == orderId));
-                    _db.Orders.Remove(_currentOrder);
-                    _db.SaveChanges();
-
-                    FillCheckOutItems();
-                    ResetForm();
-                }
-                if (_currentOrder == null)
-                {
-                    ResetForm();
-                }
-
-            }
-
-        }
-
-        private void DgvCheckOutItems_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int id = Convert.ToInt32(dgvCheckOutItems.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            _selectedItem = _db.OrderItems.Find(id);
-
-            iconDeleteItem.Show();
-            lblSelectedItem.Show();
-
-            lblSelectedItem.Text = _selectedItem.Book.Name;
-        }
-
-        private void IconDeleteItem_Click(object sender, EventArgs e)
-        {
-            if (_selectedItem == null)
-            {
-                return;
-            }
-
-            iconDeleteItem.Show();
-            lblSelectedItem.Show();
-            lblSelectedItem.Text = _selectedItem.Book.Name;
-
-            DialogResult dialog = MessageBox.Show("Selected item ' " + _selectedItem.Book.Name +  " ' will be removed from check out list", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dialog == DialogResult.Yes)
-            {
-                _db.OrderItems.Remove(_selectedItem);
-
-                _db.SaveChanges();
-
-                FillCheckOutItems();
-
-                iconDeleteItem.Hide();
-                lblSelectedItem.Text = "";
-                lblSelectedItem.Hide();
-
-                _currentOrder.TotalPrice -= _selectedItem.Amount;
-                lblOrderTotalPrice.Text = _currentOrder.TotalPrice.ToString() + "  AZN";
-            }
-            else
-            {
-                iconDeleteItem.Hide();
-                lblSelectedItem.Text = "";
-                lblSelectedItem.Hide();
-
-                _selectedItem = null;
-            }
-        }
-
+        //Confirm full order
         private void BtnCreateCrtOrder_Click(object sender, EventArgs e)
         {
+            //if checkout list is empty cancel process
             if (dgvCheckOutItems.Rows.Count < 1)
             {
                 DialogResult d = MessageBox.Show("Order list is empty! Cancel the request ?", "Cancel Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -495,14 +292,252 @@ namespace LibraryFinalTask.Forms
                 dgvCheckOutItems.Rows.Clear();
             };
 
-            
+
         }
 
+        //delete selected row from order checkout list
+        private void IconDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedItem == null)
+            {
+                return;
+            }
+
+            iconDeleteItem.Show();
+            lblSelectedItem.Show();
+            lblSelectedItem.Text = _selectedItem.Book.Name;
+
+            DialogResult dialog = MessageBox.Show("Selected item ' " + _selectedItem.Book.Name + " ' will be removed from check out list", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.Yes)
+            {
+                _db.OrderItems.Remove(_selectedItem);
+
+                _db.SaveChanges();
+
+                FillCheckOutItems();
+
+                iconDeleteItem.Hide();
+                lblSelectedItem.Text = "";
+                lblSelectedItem.Hide();
+
+                _currentOrder.TotalPrice -= _selectedItem.Amount;
+                lblOrderTotalPrice.Text = _currentOrder.TotalPrice.ToString() + "  AZN";
+            }
+            else
+            {
+                iconDeleteItem.Hide();
+                lblSelectedItem.Text = "";
+                lblSelectedItem.Hide();
+
+                _selectedItem = null;
+            }
+        }
+
+        //Cancel Order process
+        private void BtnCancelCrtOrder_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure to cancel the process ?", "Cancel Order", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (dialog == DialogResult.OK)
+            {
+                if (_currentOrder != null)
+                {
+                    int orderId = _currentOrder.Id;
+
+                    _db.OrderItems.RemoveRange(_db.OrderItems.Where(o => o.OrderId == orderId));
+                    _db.Orders.Remove(_currentOrder);
+                    _db.SaveChanges();
+
+                    FillCheckOutItems();
+                    ResetForm();
+                }
+                if (_currentOrder == null)
+                {
+                    ResetForm();
+                }
+
+            }
+
+        }
+
+        #endregion
+
+
+        //selectings CustomerBookOrderItem
+        #region selectCustomerBookOrderItem
+
+        //dgv customers row header double click
+        private void DgvCustomersCrtOrder_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (btnCancelCrtOrder.Visible == false)
+            {
+                btnCancelCrtOrder.Show();
+            }
+
+            int customerId = Convert.ToInt32(dgvCustomers.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedCustomer = _db.Customers.Find(customerId);
+
+            if (_selectedCustomer != null)
+            {
+                lblCustomer.Text = _selectedCustomer.Name + " " + _selectedCustomer.Surname;
+                lblCustomerId.Text = "# " + _selectedCustomer.Id;
+                lblCustomerEmail.Text = _selectedCustomer.Email;
+                lblCustomerPhone.Text = _selectedCustomer.Phone;
+
+                lblSeller.Show();
+
+            }
+        }
+
+        //select book row header double click
+        private void DgvBooks_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (btnCancelCrtOrder.Visible == false)
+            {
+                btnCancelCrtOrder.Show();
+            }
+
+            int bookId = Convert.ToInt32(dgvBooks.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedBook = _db.Books.Find(bookId);
+
+            if (_selectedBook.Count < 1)
+            {
+                DialogResult d = MessageBox.Show("The operation failed. Book is not available", "Oops, Error !", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+
+            //order Rent
+            if (rBtnRentOrder.Checked == true)
+            {
+                if (_selectedBook != null)
+                {
+                    lblSlctBookName.Text = _selectedBook.Name;
+                    lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
+
+                    rBtnSaleOrder.Show();
+                    rBtnRentOrder.Show();
+                    lblSlctBookName.Show();
+                    lblBookPrice.Show();
+                    ntxtCountOrder.Show();
+                    dateReturnOrder.Show();
+
+                }
+            }
+
+            //order Sale
+            if (rBtnSaleOrder.Checked == true)
+            {
+                if (_selectedBook != null)
+                {
+                    lblSlctBookName.Text = _selectedBook.Name;
+                    lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
+                }
+            }
+
+        }
+
+        //select item from order checkout list
+        private void DgvCheckOutItems_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvCheckOutItems.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedItem = _db.OrderItems.Find(id);
+
+            iconDeleteItem.Show();
+            lblSelectedItem.Show();
+
+            lblSelectedItem.Text = _selectedItem.Book.Name;
+        }
+
+
+        #endregion
+
+        private void IcnSearchCustCrtOrder_Click(object sender, EventArgs e)
+        {
+            if (cmbSrchFilterCustomer.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please, select customer search filter!", "Oops, Warning!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtSearchCustCrtOrder.Text))
+            {
+                MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
+            }
+        }
+
+        //clear textbox search
+        private void IcnClearTxtSearchCust_Click(object sender, EventArgs e)
+        {
+            txtSearchCustCrtOrder.Clear();
+        }
+
+        //clear textbox search
+        private void IcnSearchBookCrtOrder_Click(object sender, EventArgs e)
+        {
+            if (cmbSrchFilterBooks.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please, select book search filter!", "Oops, Warning!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtSearchBookCrtOrder.Text))
+            {
+                MessageBox.Show("Input can't be empty for search somethings!", "Oops, Error!");
+            }
+        }
+
+
+        
+        //radio button toggle datetimepicker start
+        private void RBtnSaleOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            rBtnSaleOrder.ForeColor = Color.FromArgb(133, 240, 240);
+            rBtnRentOrder.ForeColor = Color.WhiteSmoke;
+            lblReturnDate.Hide();
+            dateReturnOrder.Hide();
+
+            if (_selectedBook != null)
+            {
+                lblBookPrice.Text = _selectedBook.PriceSale.ToString() + "   AZN";
+            }
+        }
+        private void RBtnRentOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            rBtnRentOrder.ForeColor = Color.FromArgb(133, 240, 240);
+            rBtnSaleOrder.ForeColor = Color.WhiteSmoke;
+
+            lblReturnDate.Show();
+            dateReturnOrder.Show();
+
+            if (_selectedBook != null)
+            {
+                lblBookPrice.Text = _selectedBook.PriceRent.ToString() + "   AZN";
+            }
+
+        }
+        //radio button toggle datetimepicker end
+
+
+        // rent book for maximum 15days
+        private void AddOrderForm_Load(object sender, EventArgs e)
+        {
+            dateReturnOrder.MinDate = DateTime.Now;
+            dateReturnOrder.MaxDate = DateTime.Now.AddDays(15);
+        }
+
+
+        // back to dashboard
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
+        //on form closing cancel current order
         private void AddOrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (dgvCheckOutItems.Rows.Count > 0 || _currentOrder != null )

@@ -28,6 +28,10 @@ namespace LibraryFinalTask.Models
 
         [Required]
         [MaxLength(50)]
+        public string Password { get; set; }
+
+        [Required]
+        [MaxLength(50)]
         public string Phone { get; set; }
         public bool Status { get; set; }
 
